@@ -4,11 +4,13 @@
              xmlns:local="clr-namespace:Boardgame"
              StartupUri="/View/MainWindow.xaml"
              xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+             
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Style/UIColors.xaml"/>
                 <ResourceDictionary Source="/Style/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Utilities/DataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <!--Grid Style-->
             <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">

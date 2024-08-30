@@ -9,12 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FontAwesome" Version="4.7.0" />
-    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <Compile Remove="View\MainControls\**" />
+    <EmbeddedResource Remove="View\MainControls\**" />
+    <None Remove="View\MainControls\**" />
+    <Page Remove="View\MainControls\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\MainControls\" />
+    <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
   </ItemGroup>
 
 </Project>

@@ -3,13 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1300"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
+    <!--// WindowBorder //-->
     <Border CornerRadius="10"
             BorderThickness="1">
         <Border.BorderBrush>
@@ -30,6 +31,7 @@
             </Border.BorderBrush>
 
             <Grid>
+                <!--// Base Grid //-->
                 <Grid.ColumnDefinitions>
                     <!--Navigation Menu-->
                     <ColumnDefinition Width="250"/>
@@ -46,11 +48,11 @@
                         </LinearGradientBrush>
                     </Border.Background>
                     <StackPanel>
-                        
+
                         <StackPanel Orientation="Horizontal"
             Height="35"
             Margin="15,25,0,40">
-                            <TextBlock Text="Planszówki"
+                            <TextBlock Text="Board games"
                Foreground="{StaticResource titleColor2}"
                FontSize="20"
                FontFamily="Montserrat"
@@ -58,40 +60,42 @@
                VerticalAlignment="Center"
                Margin="10,0,0,0"/>
                         </StackPanel>
+                        <!--// Drawing Button //-->
                         <RadioButton 
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color2}" 
-                            Click="RadioButton_Click_Draw">
+                            Click="RadioButton_Click_Draw" Width="259">
                             <StackPanel Orientation="Horizontal">
-                                <fa:ImageAwesome Icon="Dashboard" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Losowanie" Style="{StaticResource menuButtonText}"/>
+                                <fa:IconImage  Icon="Medal" Style="{StaticResource menuButtonIcon}"/>
+
+                                <TextBlock Text="Drawing" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                        
+                        <!--// Calendar //-->
                         <RadioButton  
                             Style="{StaticResource menuButton}"
-                            Tag="{StaticResource color3}"
-                            Click="RadioButton_Click_AddBoardGame" Checked="RadioButton_Checked_1">
+                            Tag="{StaticResource color4}"
+                            Click="RadioButton_Click_CalendarGame" Checked="RadioButton_Calndar">
                             <StackPanel Orientation="Horizontal">
-                                <fa:ImageAwesome Icon="Plus" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Dodaj" Style="{StaticResource menuButtonText}"/>
+                                <fa:IconImage Icon="CalendarDay" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Style="{StaticResource menuButtonText}" ><Run Language="pl-PL" Text=""/><Run Language="en-EN"  Text="Calendar"/></TextBlock>
                             </StackPanel>
                         </RadioButton>
-                        
+                        <!--// Table of board games //-->
                         <RadioButton
                             Style="{StaticResource menuButton}"
-                            Tag="{StaticResource color4}"
+                            Tag="{StaticResource color3}"
                             Click="RadioButton_Click_BoardGame" Checked="RadioButton_Checked">
                             <StackPanel Orientation="Horizontal">
-                                <fa:ImageAwesome Icon="MapOutline" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Planszówki" Style="{StaticResource menuButtonText}" />
+                                <fa:IconImage Icon="TableList" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Style="{StaticResource menuButtonText}" ><Run Language="pl-PL" Text=""/><Run Language="en-EN"  Text="Table of board games"/></TextBlock>
                             </StackPanel>
                         </RadioButton>
                     </StackPanel>
                 </Border>
 
                 <Border CornerRadius="0,10,10,0"
-        Grid.Column="1" Margin="5,0,0,5">
+        Grid.Column="1" Margin="0,0,0,0">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="1,1" EndPoint="0,0.7">
                             <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
@@ -105,7 +109,8 @@
                             <!--Header / Caption-->
                             <RowDefinition Height="35"/>
                             <!--Content section / Child views-->
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="76*"/>
+                            <RowDefinition Height="555*"/>
                         </Grid.RowDefinitions>
 
                         <!--Control bar-->
@@ -122,7 +127,7 @@
                                 Style="{StaticResource ControlButton}"
                                 Tag="{StaticResource color4}"
                                 Click="btnClose_Click">
-                                <fa:ImageAwesome Icon="WindowClose" Width="12" Style="{StaticResource ControlButtonIcon}"/>
+                                <fa:IconImage Icon="WindowClose" Width="12" Style="{StaticResource ControlButtonIcon}"/>
 
                             </Button>
 
@@ -130,7 +135,7 @@
                                     Style="{StaticResource ControlButton}"
                                     Tag="{StaticResource color6}"
                                     Click="btnMaximize_Click">
-                                <fa:ImageAwesome Icon="WindowMaximize" Width="12" Style="{StaticResource ControlButtonIcon}"/>
+                                <fa:IconImage Icon="WindowMaximize" Width="12" Style="{StaticResource ControlButtonIcon}"/>
 
                             </Button>
 
@@ -138,7 +143,7 @@
                                     Style="{StaticResource ControlButton}"
                                     Tag="{StaticResource color8}"
                                     Click="btnMinimize_Click">
-                                <fa:ImageAwesome Icon="WindowMinimize" Width="12" Style="{StaticResource ControlButtonIcon}"/>
+                                <fa:IconImage Icon="WindowMinimize" Width="12" Style="{StaticResource ControlButtonIcon}"/>
 
                             </Button>
                         </StackPanel>
@@ -155,9 +160,9 @@
 
                             </StackPanel>
                         </Grid>
-                        <!--Content section / Child views-->
+                        <!--Content section /           Child views-->
                         <ContentControl x:Name="panelSelect"
-                               Grid.Row="2"/>
+                               Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Right" Width="1041" Margin="0,33,0,2"/>
 
                     </Grid>
                 </Border>

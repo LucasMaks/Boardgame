@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boardgame", "Boardgame.csproj", "{F2F3EF33-DBC7-480A-A827-D5558F5E41AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boardgame", "Boardgame.csproj", "{F2F3EF33-DBC7-480A-A827-D5558F5E41AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_CultureCountyOverrides = en=en-VG
 		SolutionGuid = {51A3D1D6-DB3A-4DCC-BD96-2F04ECFA44AA}
 	EndGlobalSection
 EndGlobal

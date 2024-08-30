@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:fa="http://schemas.fontawesome.io/icons/">
+                    xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp">
 
     <!--Menu button-->
     <Style x:Key="menuButton" TargetType="RadioButton">
@@ -40,7 +40,7 @@
     </Style>
 
     <!--Menu button icon-->
-    <Style x:Key="menuButtonIcon" TargetType="fa:ImageAwesome">
+    <Style x:Key="menuButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
         <Setter Property="Width" Value="22"/>
         <Setter Property="Height" Value="22"/>
@@ -81,7 +81,7 @@
     </Style>
 
     <!--Menu button icon-->
-    <Style x:Key="ControlButtonIcon" TargetType="fa:ImageAwesome">
+    <Style x:Key="ControlButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
         <Setter Property="Width" Value="9"/>
         <Setter Property="Height" Value="9"/>
@@ -140,7 +140,7 @@
         </Style.Triggers>
     </Style>
     <!--paggingIconButton-->
-    <Style x:Key="paggingButtonIcon" TargetType="fa:ImageAwesome">
+    <Style x:Key="paggingButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Width" Value="13"/>
         <Setter Property="Height" Value="13"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -183,7 +183,7 @@
         </Style.Triggers>
     </Style>
     <!--GridIconButton-->
-    <Style x:Key="GridButtonIcon" TargetType="fa:ImageAwesome">
+    <Style x:Key="GridButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Width" Value="12"/>
         <Setter Property="Height" Value="12"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
