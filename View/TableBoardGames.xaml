@@ -4,13 +4,134 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:Boardgame.ViewModel"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:TableBoardGamesVM/>
     </UserControl.DataContext>
     
-    <Grid>
+    <Border CornerRadius="10"
+Grid.Column="1" Margin="0,0,0,0">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="1,1" EndPoint="0,0.7">
+                <GradientStop Color="{StaticResource winBorderColor4}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor5}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <!--Content section / Child views-->
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="555*"/>
+            </Grid.RowDefinitions>
             
-    </Grid>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <!--Navigation Menu-->
+                    <ColumnDefinition Width="*"/>
+                    <!--Content section-->
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Caption-->
+                <StackPanel Grid.Column="1"
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+                    <RadioButton x:Name="Add_BoardGame"
+                            Style="{StaticResource AddButton}"
+                            Tag="{StaticResource color4}"
+                            Margin="5,0,0,5" 
+                            VerticalAlignment="Center" 
+                            Click="Add_BoardGame_Click">
+                        
+                        <StackPanel Orientation="Horizontal" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" Width="202">
+                            <fa:IconImage Icon="PlusCircle" 
+                                          Style="{StaticResource menuButtonIcon}" 
+                                          RenderTransformOrigin="-0.901,0.427"/>
+
+                            <TextBlock Style="{StaticResource menuButtonText}" Foreground="{StaticResource color4}" Width="135" HorizontalAlignment="Center">
+                                <Run Language="pl-PL" Text=""/>
+                                <Run Language="en-EN"  Text="Add Board game"/>
+                            </TextBlock>
+
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+                   <!--Search-->
+                <StackPanel Grid.Column="0"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center" Margin="10,0,350,0">
+                    <TextBox x:Name="SearchBox"
+                             Style="{StaticResource TextBoxSearch}" 
+                             Width="190" Text="Search..." 
+                             SelectionOpacity="2" 
+                             Foreground="Gray"
+                             GotFocus="SearchBox_GotFocus"
+                             LostFocus="SearchBox_LostFocus"/>
+                   
+                </StackPanel>
+               
+            </Grid>
+            
+                <!--Data grid -->
+            <DataGrid Style="{DynamicResource DataGridStyle1}"  
+                      CellStyle="{DynamicResource DataGridCellStyle1}" 
+                      ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                      RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="1" 
+                      x:Name="BoardGameGridView">
+                
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn CanUserResize="False" Width="auto">
+                        <DataGridCheckBoxColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox/>
+                            </DataTemplate>
+                        </DataGridCheckBoxColumn.HeaderTemplate>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="Auto"/>
+
+                    <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="25" Height="25" CornerRadius="20" Margin="0,0,20,0" Background="{StaticResource color6}">
+                                        <TextBlock Text="..." VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{StaticResource color12}" Margin="0,0,0,10"/>
+                                    </Border>
+                                    <TextBlock  Text="..." VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTextColumn Header="Description" IsReadOnly="True"  Width="*"/>
+                    <DataGridTextColumn Header="People" IsReadOnly="True"  Width="*"/>
+                    <DataGridTextColumn Header="Hours" IsReadOnly="True"  Width="*"/>
+                    <DataGridTextColumn Header="Accessibility" IsReadOnly="True"  Width="*"/>
+                    <DataGridTextColumn Header="Owner" IsReadOnly="True"  Width="*"/>
+                    
+                    <DataGridTemplateColumn Header="Opertions" IsReadOnly="True" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border>
+                                        <fa:IconImage Icon="Pencil" Style="{StaticResource menuButtonIcon}"/>
+                                    </Border>
+                                    <Border>
+                                        <fa:IconImage Icon="Pencil" Style="{StaticResource menuButtonIcon}"/>
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+                </DataGrid>
+     
+            
+            
+        </Grid>
+    </Border>
 </UserControl>

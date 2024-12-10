@@ -88,11 +88,11 @@
     </Style>
 
     <!--TextBox Serch-->
-    <Style x:Key="TextBoxSerach" TargetType="TextBox">
+    <Style x:Key="TextBoxSearch" TargetType="TextBox">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#e0e6ed"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontSize" Value="13.5"/>
         <Setter Property="Padding" Value="5 5"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="0 0"/>
@@ -188,8 +188,78 @@
         <Setter Property="Height" Value="12"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
-
-    <!--#Region Checbox Style-->
+    <!--Menu button Page-->
+    <Style x:Key="menuButtonPage" TargetType="RadioButton">
+        <!--Normal button style-->
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="-5,0,0,5"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource plainTextColor3}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderThickness="0,0,0,0"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <!--Button Style on hover-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Margin" Value="0,0,0,5"/>
+                <Setter Property="Background" Value="{StaticResource panelOverColor}"/>
+                <Setter Property="Foreground" Value="{StaticResource titleColor3}"/>
+                <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+            </Trigger>
+            <!--Activated button style-->
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Margin" Value="0,0,0,5"/>
+                <Setter Property="Background" Value="{StaticResource panelActiveColor}"/>
+                <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+                <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="AddButton" TargetType="RadioButton">
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="-5,0,0,5"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource plainTextColor3}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}"
+                     BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <!--Button Style on hover-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Margin" Value="0,0,0,5"/>
+                <Setter Property="Background" Value="{StaticResource panelOverColor}"/>
+                <Setter Property="Foreground" Value="{StaticResource titleColor3}"/>
+                <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+            </Trigger>
+            <!--Activated button style-->
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Margin" Value="0,0,0,5"/>
+                <Setter Property="Background" Value="{StaticResource panelActiveColor}"/>
+                <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+                <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+           
+            
+        <!--#Region Checbox Style-->
 
     <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
     <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070"/>

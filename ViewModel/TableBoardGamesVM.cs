@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using Boardgame.Model;
 
 namespace Boardgame.ViewModel
@@ -20,7 +21,5 @@ namespace Boardgame.ViewModel
             _model = new BoardGameModel();
             BoardGameId = 1;
         }
-
-
     }
 }

@@ -86,5 +86,10 @@ namespace Boardgame.View
         {
 
         }
+
+        private void BtnControl_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

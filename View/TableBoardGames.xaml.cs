@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Boardgame.ViewModel;
 
 namespace Boardgame.View
 {
@@ -23,6 +24,34 @@ namespace Boardgame.View
         public TableBoardGames()
         {
             InitializeComponent();
+        }
+            private void SearchBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+           if (SearchBox.Text== "Search...")
+            {
+                SearchBox.Text = string.Empty;
+                SearchBox.Foreground = new SolidColorBrush(Colors.Black); // Zmieniamy kolor czcionki na czarny
+            }
+           
+        }
+
+        private void SearchBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(SearchBox.Text))
+            {
+                SearchBox.Text = "Search...";
+                SearchBox.Foreground = new SolidColorBrush(Colors.Gray); // Przywracamy szary kolor czcionki
+            }
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_BoardGame_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

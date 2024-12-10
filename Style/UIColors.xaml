@@ -9,6 +9,10 @@
     <Color x:Key="winBorderColor1">#6D2FFF</Color>
     <Color x:Key="winBorderColor2">#FB539B</Color>
     <Color x:Key="winBorderColor3">#836EFB</Color>
+    <Color x:Key="winBorderColor4">#dfdfdf</Color>
+    <Color x:Key="winBorderColor5">#ffffff</Color>
+    <Color x:Key="winBorderColor6">#122936</Color>
+    <Color x:Key="winBorderColor7">#293f49</Color>
     <!--Color Palette-->
     <SolidColorBrush x:Key="color1" Color="#E285DE"/>
     <SolidColorBrush x:Key="color2" Color="#784DFD"/>
@@ -23,6 +27,7 @@
     <SolidColorBrush x:Key="color11" Color="#B71C1C"/>
     <SolidColorBrush x:Key="color12" Color="#ffffff"/>
     <SolidColorBrush x:Key="color13" Color="#dfdfdf"/>
+
     <!--Font Colors-->
     <SolidColorBrush x:Key="titleColor1" Color="#E0E1F1"/>
     <SolidColorBrush x:Key="titleColor2" Color="#D5CFF5"/>
@@ -30,6 +35,7 @@
     <SolidColorBrush x:Key="plainTextColor1" Color="#9497CD"/>
     <SolidColorBrush x:Key="plainTextColor2" Color="#7C80C2"/>
     <SolidColorBrush x:Key="plainTextColor3" Color="#7376BD"/>
+    
     <!--Panel Colors-->
     <SolidColorBrush x:Key="panelColor" Color="#200F53"/>
     <SolidColorBrush x:Key="panelOverColor" Color="#281269"/>

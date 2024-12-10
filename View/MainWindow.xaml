@@ -4,12 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:vm="clr-namespace:Boardgame.ViewModel"
+        xmlns:Menu="clr-namespace:Boardgame.Utilities"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1300"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
+
+    <Window.DataContext>
+        <vm:NavigationVm/>
+    </Window.DataContext>
     <!--// WindowBorder //-->
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -60,8 +66,18 @@
                VerticalAlignment="Center"
                Margin="10,0,0,0"/>
                         </StackPanel>
+                        <Menu:BtnControl 
+                            Style="{StaticResource menuButton}"
+                            Tag="{StaticResource color1}" 
+                            Command="{Binding StarPageCommand}"
+                            Click="BtnControl_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Home"  Style="{StaticResource menuButtonText}" />
+                            </StackPanel>
+                        </Menu:BtnControl>
                         <!--// Drawing Button //-->
-                        <RadioButton 
+                        <Menu:BtnControl 
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color2}" 
                             Click="RadioButton_Click_Draw" Width="259">
@@ -70,27 +86,29 @@
 
                                 <TextBlock Text="Drawing" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
-                        </RadioButton>
+                        </Menu:BtnControl>
                         <!--// Calendar //-->
-                        <RadioButton  
+                        <Menu:BtnControl
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color4}"
+                            Command="{Binding CalendarCommand}"
                             Click="RadioButton_Click_CalendarGame" Checked="RadioButton_Calndar">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="CalendarDay" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Style="{StaticResource menuButtonText}" ><Run Language="pl-PL" Text=""/><Run Language="en-EN"  Text="Calendar"/></TextBlock>
                             </StackPanel>
-                        </RadioButton>
+                        </Menu:BtnControl>
                         <!--// Table of board games //-->
-                        <RadioButton
+                        <Menu:BtnControl
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color3}"
+                            Command="{Binding TableBoardGamesCommand}"
                             Click="RadioButton_Click_BoardGame" Checked="RadioButton_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="TableList" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Style="{StaticResource menuButtonText}" ><Run Language="pl-PL" Text=""/><Run Language="en-EN"  Text="Table of board games"/></TextBlock>
                             </StackPanel>
-                        </RadioButton>
+                        </Menu:BtnControl>
                     </StackPanel>
                 </Border>
 
@@ -108,8 +126,6 @@
                             <RowDefinition Height="25"/>
                             <!--Header / Caption-->
                             <RowDefinition Height="35"/>
-                            <!--Content section / Child views-->
-                            <RowDefinition Height="76*"/>
                             <RowDefinition Height="555*"/>
                         </Grid.RowDefinitions>
 
@@ -144,7 +160,7 @@
                                     Tag="{StaticResource color8}"
                                     Click="btnMinimize_Click">
                                 <fa:IconImage Icon="WindowMinimize" Width="12" Style="{StaticResource ControlButtonIcon}"/>
-
+                                
                             </Button>
                         </StackPanel>
                         <!--Header / Caption-->
@@ -152,17 +168,16 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-
-                            <!--Caption-->
-                            <StackPanel Grid.Column="0"
-                                    Orientation="Horizontal"
-                                    VerticalAlignment="Center">
-
-                            </StackPanel>
                         </Grid>
                         <!--Content section /           Child views-->
-                        <ContentControl x:Name="panelSelect"
-                               Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Right" Width="1041" Margin="0,33,0,2"/>
+                        <Grid Grid.Row="3" >
+                            <Border CornerRadius="0,20,20,0">
+                                <ContentControl x:Name="panelSelect"
+            Content="{Binding CurrentView}" Margin="10,0,10,10"/>
+                            </Border>
+                           
+                        </Grid>
+                        
 
                     </Grid>
                 </Border>

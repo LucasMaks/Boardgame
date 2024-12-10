@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Boardgame.ViewModel
 {
-     class MainWindowVM
+    class StarPageVM
     {
-      
+        
     }
 }
