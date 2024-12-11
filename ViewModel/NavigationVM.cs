@@ -23,11 +23,8 @@ namespace Boardgame.ViewModel
         public ICommand CalendarCommand { get; set; }
         public ICommand MainCommand { get; set; }
         public ICommand StarPageCommand { get; set; }
-        public ICommand AddBoardGameCommand { get; set; }
 
         private void MainWindows(object obj) => CurrentView = new MainWindowVM();
-
-        private void AddBoardGame(object obj) => CurrentView = new AddBoaerdGameVM();
         private void Calendar(object obj) => CurrentView = new CalendarVM();
         private void TableBoardGames(object obj) => CurrentView = new TableBoardGamesVM();
         private void StarPage(object obj) => CurrentView = new StarPageVM();

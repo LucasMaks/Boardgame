@@ -86,7 +86,35 @@
         <Setter Property="Width" Value="9"/>
         <Setter Property="Height" Value="9"/>
     </Style>
-
+    <!--TextBox Names-->
+  <Style x:Key="TextBoxNames" TargetType="TextBox">
+      <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Padding" Value="5 5"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0 0"/>
+    <Setter Property="Template">
+       <Setter.Value>
+                <ControlTemplate TargetType="TextBoxBase">
+                    <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
+                            BorderThickness="1" BorderBrush="#e0e6ed">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="border"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="border"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+    </Setter>
+    
+  </Style>
     <!--TextBox Serch-->
     <Style x:Key="TextBoxSearch" TargetType="TextBox">
         <Setter Property="Background" Value="Transparent"/>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Boardgame.ViewModel;
+using Boardgame.Service;
 
 namespace Boardgame.View
 {
@@ -51,7 +52,8 @@ namespace Boardgame.View
 
         private void Add_BoardGame_Click(object sender, RoutedEventArgs e)
         {
-
+           WindowsServices windowsServices = new WindowsServices();
+            windowsServices.OpenWindow();
         }
     }
 }

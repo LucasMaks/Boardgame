@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
-namespace Boardgame.ViewModel
+namespace Boardgame.Service
 {
-    class AddBoaerdGameVM
+    internal interface IAddBoardGame
     {
+        void OpenWindow();
+        void CloseWindow();
 
     }
 }

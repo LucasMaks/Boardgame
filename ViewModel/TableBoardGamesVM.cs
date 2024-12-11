@@ -8,7 +8,7 @@ using Boardgame.Model;
 
 namespace Boardgame.ViewModel
 {
-    class TableBoardGamesVM : Utilities.ViewModelBase
+    class TableBoardGamesVM : Utilities.ViewModelBase 
     {
         private readonly BoardGameModel _model;
         public int BoardGameId
@@ -18,6 +18,7 @@ namespace Boardgame.ViewModel
         }
         public TableBoardGamesVM()
         {
+           
             _model = new BoardGameModel();
             BoardGameId = 1;
         }
