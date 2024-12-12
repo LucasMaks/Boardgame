@@ -252,6 +252,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <!--Add board game Button-->
     <Style x:Key="AddButton" TargetType="RadioButton">
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="-5,0,0,5"/>

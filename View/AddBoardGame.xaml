@@ -8,6 +8,7 @@
              xmlns:vm="clr-namespace:Boardgame.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="410"
+             Width="410"
              WindowStyle="None"
         Background="Transparent">
 
@@ -18,7 +19,7 @@
     <Grid>
         <!--// Base Grid //-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="410"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Border Grid.Column="0" CornerRadius="10">
             <Border.Background>
@@ -37,14 +38,14 @@
             </Grid.RowDefinitions>
             <!--Control bar-->
             <StackPanel x:Name="pnlControlBar"
-        Grid.Row="0"
-        Orientation="Horizontal"
-        FlowDirection="RightToLeft"
-        Background="Transparent"
-        Margin="0,0,10,0"
-        MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
-        MouseEnter="pnlControlBar_MouseEnter">
-
+                        Grid.Row="0"
+                        Orientation="Horizontal"
+                        FlowDirection="RightToLeft"
+                        Background="Transparent"
+                        Margin="0,0,10,0"
+                        MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                        MouseEnter="pnlControlBar_MouseEnter">
+                
                 <Button x:Name="btnClose"
         Style="{StaticResource ControlButton}"
         Tag="{StaticResource color4}"
@@ -70,12 +71,22 @@
                 </Button>
             </StackPanel>
             <!--Header / Caption-->
-            <Grid Grid.Row="1" HorizontalAlignment="Left" Width="800" Height="425" VerticalAlignment="Center">
+            <Grid Grid.Row="1" HorizontalAlignment="Left" Width="410" Height="425" VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
-                <!--Title-->
+                <!--Title Add Board Game-->
+                <TextBlock Text="Add board game"
+                           Foreground="{StaticResource titleColor3}"
+                           FontSize="19"
+                           FontFamily="Montserrat"
+                           FontWeight="Normal"
+                           TextAlignment="Center"
+                           Margin="130,20,130,0" 
+                           Height="21" 
+                           VerticalAlignment="Top"/>
+                
+                <!--Title Board Game-->
                 <TextBlock Text="Title board game"
                            Foreground="{StaticResource titleColor3}"
                            FontSize="14"
