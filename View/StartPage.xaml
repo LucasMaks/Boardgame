@@ -28,7 +28,7 @@
         <Grid>
             <Border MaxWidth="250" MaxHeight="250" HorizontalAlignment="Center" Width="250" Height="250" VerticalAlignment="Center" Margin="0,0,0,-5">
                 <Border.Background>
-                    <ImageBrush ImageSource="G:\BoardGame\Boardgame\Image\StartPage.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="C:\Users\ermsj\source\repos\LucasMaks\Boardgame\Image\StartPage.png" Stretch="Uniform"/>
                 </Border.Background>
             </Border>
 

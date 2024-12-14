@@ -13,7 +13,7 @@
         Background="Transparent">
 
     <Window.DataContext>
-        <vm:AddBoaerdGameVM/>
+        <vm:AddBoardGameVM/>
     </Window.DataContext>
 
     <Grid>
@@ -45,7 +45,7 @@
                         Margin="0,0,10,0"
                         MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
                         MouseEnter="pnlControlBar_MouseEnter">
-                
+
                 <Button x:Name="btnClose"
         Style="{StaticResource ControlButton}"
         Tag="{StaticResource color4}"
@@ -71,7 +71,7 @@
                 </Button>
             </StackPanel>
             <!--Header / Caption-->
-            <Grid Grid.Row="1" HorizontalAlignment="Left" Width="410" Height="425" VerticalAlignment="Center">
+            <Grid Grid.Row="1" HorizontalAlignment="Center" MaxWidth="410" Height="425" VerticalAlignment="Center" Width="410">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -84,8 +84,9 @@
                            TextAlignment="Center"
                            Margin="130,20,130,0" 
                            Height="21" 
+                           MaxWidth="160"
                            VerticalAlignment="Top"/>
-                
+
                 <!--Title Board Game-->
                 <TextBlock Text="Title board game"
                            Foreground="{StaticResource titleColor3}"
@@ -175,7 +176,27 @@
                     LostFocus="Hours_LostFocus"
                     HorizontalAlignment="Left"
                     Height="30"/>
+                <RadioButton x:Name="SaveBoardGame"
+         Style="{StaticResource SeaveButton}"
+         Tag="{StaticResource color4}"
+         Margin="5,0,0,50" 
+         VerticalAlignment="Bottom" 
+         Click="SaveBoardGame_Click" Checked="SaveBoardGame_Checked">
 
+                    <StackPanel Orientation="Horizontal" 
+                 VerticalAlignment="Center" 
+                 HorizontalAlignment="Center" Width="120">
+
+                        <fa:IconImage Icon="PlusCircle" 
+                       Style="{StaticResource menuButtonIconSave}" 
+                       RenderTransformOrigin="-0.123,0.42"/>
+
+                        <TextBlock Style="{StaticResource menuButtonText}" 
+                                   Foreground="{StaticResource color4}" 
+                                   Width="42"><Run Language="pl-PL" Text=""/><Run Text=" "/><Run Language="en-EN"  Text="Save"/></TextBlock>
+
+                    </StackPanel>
+                </RadioButton>
             </Grid>
         </Grid>
 

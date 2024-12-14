@@ -10,7 +10,7 @@ using Boardgame.View;
 
 namespace Boardgame.ViewModel
 {
-     class NavigationVm:ViewModelBase
+     class NavigationVm : ViewModelBase
     {
         private object _currentView;
         public object CurrentView

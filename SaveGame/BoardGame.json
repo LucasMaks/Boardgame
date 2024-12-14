@@ -1,0 +1,56 @@
+[
+  {
+    "Id": "96f0f576-67b9-40bd-a8a1-a2f362728569",
+    "Title": "nowa baza adncyh",
+    "Description": "ja cie chyca",
+    "People": 123,
+    "Hours": 12,
+    "Accessibility": false,
+    "Owner": null
+  },
+  {
+    "Id": "c3ed5e0d-ad76-4920-9500-20a5dd55b977",
+    "Title": "ja cie chce",
+    "Description": "sdasd",
+    "People": 12,
+    "Hours": 12,
+    "Accessibility": false,
+    "Owner": null
+  },
+  {
+    "Id": "652830c3-4346-4398-ab30-2da3afe78c0e",
+    "Title": "nowa ",
+    "Description": "gra",
+    "People": 2,
+    "Hours": 4,
+    "Accessibility": false,
+    "Owner": "Default"
+  },
+  {
+    "Id": "cf69dfc4-ddc4-48da-a580-f7a785e57483",
+    "Title": "nowa ",
+    "Description": "gra",
+    "People": 1233,
+    "Hours": 12,
+    "Accessibility": false,
+    "Owner": "Default"
+  },
+  {
+    "Id": "f90de108-68fe-4e26-8530-847289fb6a93",
+    "Title": "nowa gra",
+    "Description": "i jeszcze nowsza",
+    "People": 12,
+    "Hours": 2,
+    "Accessibility": false,
+    "Owner": "Default"
+  },
+  {
+    "Id": "0a3a7065-f61a-4178-981c-408760d9206d",
+    "Title": "nowa sdada",
+    "Description": "asdas",
+    "People": 12,
+    "Hours": 123,
+    "Accessibility": false,
+    "Owner": "Default"
+  }
+]

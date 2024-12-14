@@ -1,26 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using Boardgame.Model;
+using System.IO;
+using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace Boardgame.ViewModel
 {
-    class TableBoardGamesVM : Utilities.ViewModelBase 
+    public class TableBoardGamesVM : INotifyPropertyChanged
     {
-        private readonly BoardGameModel _model;
-        public int BoardGameId
+        private ObservableCollection<BoardGameModel> _boardGames;
+        public ObservableCollection<BoardGameModel> BoardGames
         {
-            get { return _model.Id; }
-            set { _model.Id = value; OnPropertyChanged(); }
+            get => _boardGames;
+            set
+            {
+                _boardGames = value;
+                OnPropertyChanged(nameof(BoardGames));
+            }
         }
+
         public TableBoardGamesVM()
         {
-           
-            _model = new BoardGameModel();
-            BoardGameId = 1;
+            LoadBoardGames();
+            RefreshCollectionView();
+        }
+
+        private void LoadBoardGames()
+        {
+            string filePath = "C:\\Users\\ermsj\\source\\repos\\LucasMaks\\Boardgame\\SaveGame\\BoardGame.json";
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                try
+                {
+                    BoardGames = JsonConvert.DeserializeObject<ObservableCollection<BoardGameModel>>(json);
+                }
+                catch (JsonSerializationException)
+                {
+                    var singleBoardGame = JsonConvert.DeserializeObject<BoardGameModel>(json);
+                    BoardGames = new ObservableCollection<BoardGameModel> { singleBoardGame };
+                }
+            }
+            else
+            {
+                BoardGames = new ObservableCollection<BoardGameModel>();
+            }
+        }
+
+
+        public void SaveBoardGames()
+        {
+            string filePath = "C:\\Users\\ermsj\\source\\repos\\LucasMaks\\Boardgame\\SaveGame\\BoardGame.json"; // Zmień na odpowiednią ścieżkę
+            string json = JsonConvert.SerializeObject(BoardGames, Formatting.Indented);
+            File.WriteAllText(filePath, json);
+        }
+        public void RefreshCollectionView()
+        {
+            LoadBoardGames(); // Wczytaj ponownie dane z JSON
+            OnPropertyChanged(nameof(BoardGames)); // Powiadom widok o zmianach
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

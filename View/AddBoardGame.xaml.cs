@@ -14,8 +14,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Boardgame.Service;
 using System.Windows.Interop;
+using Boardgame.Model;
+using System.IO;
+using Path = System.IO.Path;
 
 namespace Boardgame.View
 {
@@ -132,6 +134,43 @@ namespace Boardgame.View
                 Hours.Text = "Hours...";
                 Hours.Foreground = new SolidColorBrush(Color.FromRgb(224, 225, 241)); // Przywracamy szary kolor czcionki
             }
+        }
+
+       
+
+        private void SaveBoardGame_Click(object sender, RoutedEventArgs e)
+        {
+           
+                var boardGame = new BoardGameModel
+                {
+                    Id = Guid.NewGuid(),
+                    Title = Title.Text,
+                    Description = Description.Text,
+                    People = int.TryParse(People.Text, out int players) ? players : 0,
+                    Hours = int.TryParse(Hours.Text, out int hours) ? hours : 0,
+                    Accessibility=default,
+                    Owner= "Default"
+                };
+
+                string filePath = Path.Combine("C:\\Users\\ermsj\\source\\repos\\LucasMaks\\Boardgame\\SaveGame", "BoardGame.json");
+
+            string directoryPath = Path.GetDirectoryName(filePath);
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+            
+            boardGame.Save(filePath);
+            this.DialogResult = true;
+            this.Close();
+               
+           
+            
+        }
+
+        private void SaveBoardGame_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
