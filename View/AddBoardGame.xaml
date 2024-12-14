@@ -8,6 +8,7 @@
              xmlns:vm="clr-namespace:Boardgame.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="410"
+        Width="410"
              WindowStyle="None"
         Background="Transparent">
 

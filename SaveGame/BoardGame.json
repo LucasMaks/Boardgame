@@ -43,14 +43,5 @@
     "Hours": 2,
     "Accessibility": false,
     "Owner": "Default"
-  },
-  {
-    "Id": "0a3a7065-f61a-4178-981c-408760d9206d",
-    "Title": "nowa sdada",
-    "Description": "asdas",
-    "People": 12,
-    "Hours": 123,
-    "Accessibility": false,
-    "Owner": "Default"
   }
 ]
