@@ -15,8 +15,13 @@
     <DataTemplate DataType="{x:Type vm:StarPageVM}">
         <view:StartPage/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:AddBoaerdGameVM}">
+    
+    <DataTemplate DataType="{x:Type vm:AddBoardGameVM}">
         <view:AddBoardGame/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:EditBoardGameVM}">
+        <view:EditBoardGame/>
     </DataTemplate>
                   
 

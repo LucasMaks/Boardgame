@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boardgame.Service
+namespace Boardgame.ViewModel
 {
-    internal interface IAddBoardGame
+    class EditBoardGameVM
     {
-        void OpenWindow();
-        void CloseWindow();
-
     }
 }
