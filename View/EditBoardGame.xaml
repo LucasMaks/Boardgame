@@ -10,7 +10,7 @@
         d:DesignHeight="450" d:DesignWidth="410"
         Title="EditBoardGame"  
         Width="410"
-             WindowStyle="None"
+        WindowStyle="None"
 Background="Transparent"
         Loaded="Window_Loaded">
     

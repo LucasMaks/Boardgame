@@ -85,17 +85,24 @@ namespace Boardgame.View
 
         private void DeleteBoardGame_Click(object sender, RoutedEventArgs e)
         {
-            var boardGameToDelete = (BoardGameModel)((RadioButton)sender).DataContext;
+            var notificationDelete = new NotificationDelete();
+            notificationDelete.ShowDialog();
 
-            if (boardGameToDelete != null)
-            {
-                // Usuwamy grę z kolekcji BoardGames
-                var viewModel = (TableBoardGamesVM)this.DataContext;
-                viewModel.BoardGames.Remove(boardGameToDelete);
 
-                // Zapisujemy zmienioną kolekcję do pliku JSON
-                viewModel.SaveBoardGames();
+            if (notificationDelete.IsConfirmed) {
+                var boardGameToDelete = (BoardGameModel)((RadioButton)sender).DataContext;
+
+                if (boardGameToDelete != null)
+                {
+                    // Usuwamy grę z kolekcji BoardGames
+                    var viewModel = (TableBoardGamesVM)this.DataContext;
+                    viewModel.BoardGames.Remove(boardGameToDelete);
+
+                    // Zapisujemy zmienioną kolekcję do pliku JSON
+                    viewModel.SaveBoardGames();
+                }
             }
+           
 
         }
     }
