@@ -95,20 +95,34 @@ Grid.Column="1" Margin="0,0,0,0">
                     </DataGridCheckBoxColumn>
                     <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="Auto"/>
 
-                    <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*" MinWidth="190" >
+                    <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*" MinWidth="200" >
                         <DataGridTemplateColumn.CellTemplate >
                             <DataTemplate >
                                 <StackPanel Orientation="Horizontal" >
                                     <Border Width="25" Height="25" CornerRadius="20" Margin="0,0,20,0" Background="{StaticResource color6}" >
                                         <TextBlock Text="..." VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{StaticResource color12}" Margin="0,0,0,10"/>
                                     </Border>
-                                    <TextBlock  Text="{Binding Title}" VerticalAlignment="Center"/>
+                                    <TextBlock  Text="{Binding Title}" 
+                                                TextWrapping="Wrap" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                MaxWidth="130"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
-                    <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}"  Width="*"/>
+
+                    <DataGridTemplateColumn Header="Description" Width="*" MinWidth="200">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Center" 
+                       MaxWidth="200"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
                     <DataGridTextColumn Header="People" IsReadOnly="True" Binding="{Binding People}" Width="*"/>
                     <DataGridTextColumn Header="Hours" IsReadOnly="True" Binding="{Binding Hours}" Width="*"/>
                     <DataGridTextColumn Header="Accessibility" IsReadOnly="True" Binding="{Binding Accessibility}" Width="*" MaxWidth="110"/>

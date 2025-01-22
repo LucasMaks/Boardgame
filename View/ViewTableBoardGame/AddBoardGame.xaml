@@ -102,14 +102,16 @@
                 <TextBox x:Name="Title"
                          Style="{StaticResource TextBoxNames}" 
                          Width="330" Text="Title..." 
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Auto"
                          SelectionOpacity="1" 
-                         Margin="40,85,0,0"
+                         Margin="0,85,0,0"
                          VerticalAlignment="Top"
                          GotFocus="Title_GotFocus"
                          LostFocus="Title_LostFocus" 
-                         HorizontalAlignment="Left" 
-                         Height="30">
-                </TextBox>
+                         HorizontalAlignment="Center" Height="Auto"
+                         MaxHeight="40"/>
                 <!--Description-->
 
                 <TextBlock Text="Description board game"
@@ -130,7 +132,11 @@
                          GotFocus="Description_GotFocus"
                          LostFocus="Description_LostFocus"
                          HorizontalAlignment="Left"
-                         Height="30"/>
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Auto"
+                         Height="Auto"
+                         MaxHeight="40"/>
                 <!--People-->
                 <TextBlock Text="Number of players"
                            Foreground="{StaticResource titleColor3}"

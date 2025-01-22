@@ -1,6 +1,7 @@
 ﻿using Boardgame.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -14,6 +15,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Boardgame.View
 {
@@ -63,18 +65,29 @@ namespace Boardgame.View
 
         private void SaveBoardGame_Click(object sender, RoutedEventArgs e)
         {
-            BoardGame.Title =Title.Text;
-            BoardGame.Description = Description.Text;
-            BoardGame.People = Int32.Parse(People.Text);
-            BoardGame.Hours = Int32.Parse(Hours.Text);
-
-            this.DialogResult = true;
-            this.Close();
+            try
+            {
+                BoardGame.Title = Title.Text;
+                BoardGame.Description = Description.Text;
+                BoardGame.People = int.Parse(People.Text);
+                BoardGame.Hours = int.Parse(Hours.Text);
+                this.DialogResult = true; // Potwierdzenie zapisania
+                this.Close();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter valid numeric values for People and Hours.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void SaveBoardGame_Checked(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+
+          
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

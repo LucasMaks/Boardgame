@@ -91,5 +91,10 @@ namespace Boardgame.View
         {
 
         }
+
+        private void BtnControl_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
