@@ -80,7 +80,7 @@
                         <Menu:BtnControl 
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color2}" 
-                            Click="RadioButton_Click_Draw" Width="259">
+                            Click="RadioButton_Click_Draw" Width="259" Checked="BtnControl_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage  Icon="Medal" Style="{StaticResource menuButtonIcon}"/>
 

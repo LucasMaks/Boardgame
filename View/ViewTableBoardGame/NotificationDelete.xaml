@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Boardgame.View"
         mc:Ignorable="d"
-        d:Width="400" d:Height="200"
+        d:Width="350" d:Height="110"
         Title="NotificationDelete"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
-        Width="400" Height="200">
-    <Grid>
+        Width="360" Height="110">
+    <Grid Height="110" VerticalAlignment="Bottom">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="350"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0" CornerRadius="10">
+        <Border CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                     <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
@@ -31,15 +31,15 @@
                    Foreground="{StaticResource color12}"
                    Text="Do you want to remove the board game?"
                    TextWrapping="Wrap"
-                   Margin="0,19,0,0"
+                   Margin="0,20,0,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center"
                    FontSize="16" />
 
         <!-- Buttons -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,68,0,31" Width="180">
-            <RadioButton x:Name="YesButton" Content="Yes" Width="100" Margin="10" Style="{StaticResource menuButton}" Click="YesButton_Click" />
-            <RadioButton x:Name="NoButton" Content="No" Width="100" Style="{StaticResource menuButton}" Click="NoButton_Click" />
+        <StackPanel Orientation="Horizontal" Margin="80,60,80,20">
+            <RadioButton x:Name="YesButton" Content="Yes"  Style="{StaticResource menuButtonNotificatioYes}" Click="YesButton_Click"  />
+            <RadioButton x:Name="NoButton" Content="No" Style="{StaticResource menuButtonNotificationNo}" Click="NoButton_Click"  />
         </StackPanel>
     </Grid>
 </Window>

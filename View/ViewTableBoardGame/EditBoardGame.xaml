@@ -108,7 +108,11 @@ Background="Transparent"
                      Margin="40,85,0,0"
                      VerticalAlignment="Top"
                      HorizontalAlignment="Left" 
-                     Height="30">
+                      TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Auto"
+                         Height="Auto"
+                         MaxHeight="40" >
                 </TextBox>
                 <!--Description-->
 
@@ -119,17 +123,22 @@ Background="Transparent"
                        FontWeight="Normal"
                        Margin="40,125,0,0"
                        HorizontalAlignment="Left"
-                       Width="330" Height="17" VerticalAlignment="Top"/>
+                       Width="330" 
+                           Height="17" 
+VerticalAlignment="Top"/>
 
                 <TextBox x:Name="Description"
                      Style="{StaticResource TextBoxNames}"
+                     TextWrapping="Wrap"
+   AcceptsReturn="True"
+   VerticalScrollBarVisibility="Auto"
+   Height="Auto"
+   MaxHeight="40"
                      Width="330" 
                      SelectionOpacity="1"
                      Margin="40,145,0,0"
                      VerticalAlignment="Top"
-                    
-                     HorizontalAlignment="Left"
-                     Height="30"/>
+                     HorizontalAlignment="Left"/>
                 <!--People-->
                 <TextBlock Text="Number of players"
                        Foreground="{StaticResource titleColor3}"

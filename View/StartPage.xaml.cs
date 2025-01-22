@@ -23,6 +23,19 @@ namespace Boardgame.View
         public StartPage()
         {
             InitializeComponent();
+            SetDynamicBackground();
+        }
+
+        private void SetDynamicBackground()
+        {
+            string imageUri = "pack://application:,,,/Image/StartPage.png";
+
+            ImageBrush imageBrush = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(imageUri)),
+                Stretch = Stretch.Uniform
+            };
+            DynamicBorder.Background = imageBrush;
         }
     }
 }

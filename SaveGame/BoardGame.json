@@ -43,5 +43,14 @@
     "Hours": 2,
     "Accessibility": false,
     "Owner": "Default"
+  },
+  {
+    "Id": "33df51bf-5bb1-46e7-b0dc-f6afb307e916",
+    "Title": "Nowa gra która moze doprowadzić do niezłego grafu \r\n",
+    "Description": "asda",
+    "People": 12,
+    "Hours": 12,
+    "Accessibility": false,
+    "Owner": "Default"
   }
 ]
