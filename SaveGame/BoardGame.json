@@ -5,7 +5,7 @@
     "Description": "ja cie chyca",
     "People": 123,
     "Hours": 12,
-    "Accessibility": false,
+    "Accessibility": true,
     "Owner": null
   },
   {
@@ -49,8 +49,17 @@
     "Title": "Nowa gra która moze doprowadzić do niezłego grafu \r\n",
     "Description": "asda",
     "People": 12,
-    "Hours": 12,
-    "Accessibility": false,
+    "Hours": 14,
+    "Accessibility": true,
+    "Owner": "Default"
+  },
+  {
+    "Id": "74157ffe-eb89-4135-9cb4-f2bf2f69a05a",
+    "Title": "game",
+    "Description": "nowa",
+    "People": 4,
+    "Hours": 3,
+    "Accessibility": true,
     "Owner": "Default"
   }
 ]

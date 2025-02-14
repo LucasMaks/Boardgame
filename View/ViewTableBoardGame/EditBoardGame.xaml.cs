@@ -71,6 +71,7 @@ namespace Boardgame.View
                 BoardGame.Description = Description.Text;
                 BoardGame.People = int.Parse(People.Text);
                 BoardGame.Hours = int.Parse(Hours.Text);
+                BoardGame.Accessibility = Accessibility.IsChecked == true ? true : false;
                 this.DialogResult = true; // Potwierdzenie zapisania
                 this.Close();
             }
@@ -99,8 +100,8 @@ namespace Boardgame.View
                 Description.Text = BoardGame.Description;
                 People.Text = BoardGame.People.ToString();
                 Hours.Text = BoardGame.Hours.ToString();
+                Accessibility.IsChecked = BoardGame.Accessibility;
             }
-        
-    }
+        }
     }
 }

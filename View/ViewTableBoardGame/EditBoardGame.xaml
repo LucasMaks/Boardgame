@@ -180,10 +180,28 @@ VerticalAlignment="Top"/>
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Height="30"/>
+
+                <CheckBox x:Name="Accessibility"
+                          Style="{StaticResource CheckBoxStyle1}"
+                          VerticalAlignment="Top"
+                          Margin="40,310,0,0"
+                          HorizontalAlignment="Left"/>
+
+                <TextBlock Text="Accessibility"
+                    Foreground="{StaticResource titleColor3}"
+                    FontSize="14"
+                    FontFamily="Montserrat"
+                    FontWeight="Normal"
+                    VerticalAlignment="Top"
+                    Margin="70,310,0,0"
+                    HorizontalAlignment="Left"
+                    Height="18"
+                    Width="300"/>
+
                 <RadioButton x:Name="SaveBoardGame"
      Style="{StaticResource SeaveButton}"
      Tag="{StaticResource color4}"
-     Margin="5,0,0,50" 
+     Margin="5,0,0,43" 
      VerticalAlignment="Bottom" 
      Click="SaveBoardGame_Click" Checked="SaveBoardGame_Checked">
 
