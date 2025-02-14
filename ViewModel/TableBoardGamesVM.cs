@@ -53,7 +53,6 @@ namespace Boardgame.ViewModel
             }
         }
 
-
         public void SaveBoardGames()
         {
             string filePath = "C:\\Users\\ermsj\\source\\repos\\LucasMaks\\Boardgame\\SaveGame\\BoardGame.json"; // Zmień na odpowiednią ścieżkę
@@ -62,7 +61,8 @@ namespace Boardgame.ViewModel
         }
         public void RefreshCollectionView()
         {
-            LoadBoardGames(); // Wczytaj ponownie dane z JSON
+            SaveBoardGames();
+            LoadBoardGames();// Wczytaj ponownie dane z JSON
             OnPropertyChanged(nameof(BoardGames)); // Powiadom widok o zmianach
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -71,5 +71,6 @@ namespace Boardgame.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
     }
 }

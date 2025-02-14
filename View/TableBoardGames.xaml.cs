@@ -105,5 +105,10 @@ namespace Boardgame.View
            
 
         }
+
+        private void BoardGameGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

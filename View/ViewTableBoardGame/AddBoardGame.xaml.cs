@@ -148,7 +148,7 @@ namespace Boardgame.View
                     Description = Description.Text,
                     People = int.TryParse(People.Text, out int players) ? players : 0,
                     Hours = int.TryParse(Hours.Text, out int hours) ? hours : 0,
-                    Accessibility=default,
+                    Accessibility=Accessibility.IsChecked==true? true:false,
                     Owner= "Default"
                 };
 

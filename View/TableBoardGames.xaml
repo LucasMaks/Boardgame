@@ -83,7 +83,7 @@ Grid.Column="1" Margin="0,0,0,0">
                       CellStyle="{DynamicResource DataGridCellStyle1}" 
                       ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                       RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="1" 
-                      x:Name="BoardGameGridView">
+                      x:Name="BoardGameGridView" SelectionChanged="BoardGameGridView_SelectionChanged">
                 
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn CanUserResize="False" Width="auto">
