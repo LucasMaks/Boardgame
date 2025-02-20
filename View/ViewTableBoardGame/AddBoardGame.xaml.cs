@@ -113,7 +113,7 @@ namespace Boardgame.View
 
         private void People_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Description.Text))
+            if (string.IsNullOrWhiteSpace(People.Text))
             {
                 People.Text = "People...";
                 People.Foreground = new SolidColorBrush(Color.FromRgb(224, 225, 241)); // Przywracamy szary kolor czcionki
@@ -131,10 +131,10 @@ namespace Boardgame.View
 
         private void Hours_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Description.Text))
+            if (string.IsNullOrWhiteSpace(Hours.Text))
             {
-                Description.Text = "Hours...";
-                Description.Foreground = new SolidColorBrush(Color.FromRgb(224, 225, 241)); // Przywracamy szary kolor czcionki
+                Hours.Text = "Hours...";
+                Hours.Foreground = new SolidColorBrush(Color.FromRgb(224, 225, 241)); // Przywracamy szary kolor czcionki
             }
         }
 
