@@ -18,6 +18,8 @@ using System.Windows.Interop;
 using Boardgame.Model;
 using System.IO;
 using Path = System.IO.Path;
+using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace Boardgame.View
 {
@@ -136,36 +138,49 @@ namespace Boardgame.View
             }
         }
 
-       
+
 
         private void SaveBoardGame_Click(object sender, RoutedEventArgs e)
         {
-           
-                var boardGame = new BoardGameModel
-                {
-                    Id = Guid.NewGuid(),
-                    Title = Title.Text,
-                    Description = Description.Text,
-                    People = int.TryParse(People.Text, out int players) ? players : 0,
-                    Hours = int.TryParse(Hours.Text, out int hours) ? hours : 0,
-                    Accessibility=Accessibility.IsChecked==true? true:false,
-                    Owner= "Default"
-                };
+            var boardGame = new BoardGameModel
+            {
+                Id = Guid.NewGuid(),
+                Title = Title.Text,
+                Description = Description.Text,
+                People = int.TryParse(People.Text, out int players) ? players : 0,
+                Hours = int.TryParse(Hours.Text, out int hours) ? hours : 0,
+                Accessibility=Accessibility.IsChecked==true? true:false,
+                Owner= "Default"
+            };
 
-                string filePath = Path.Combine("C:\\Users\\ermsj\\source\\repos\\LucasMaks\\Boardgame\\SaveGame", "BoardGame.json");
+            string saveGameFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveGame");
 
+            // Sprawdź, czy folder istnieje, a jeśli nie, utwórz go
+            if (!Directory.Exists(saveGameFolderPath))
+            {
+                Directory.CreateDirectory(saveGameFolderPath);
+                Console.WriteLine($"Utworzono folder: {saveGameFolderPath}");
+            }
+            else
+            {
+                Console.WriteLine($"Folder już istnieje: {saveGameFolderPath}");
+            }
+
+            string filePath = Path.Combine(saveGameFolderPath, "BoardGame.json"); ;
+
+            // Ensure the directory exists
             string directoryPath = Path.GetDirectoryName(filePath);
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
             }
-            
+
+            // Save the board game (this will handle adding to the existing list)
             boardGame.Save(filePath);
+
+            // Close the window
             this.DialogResult = true;
             this.Close();
-               
-           
-            
         }
 
         private void SaveBoardGame_Checked(object sender, RoutedEventArgs e)

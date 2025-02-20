@@ -80,22 +80,11 @@
                         <Menu:BtnControl 
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color2}" 
+                            Command="{Binding DrawingsComannd}"
                             Click="RadioButton_Click_Draw" Width="259" Checked="BtnControl_Checked">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage  Icon="Medal" Style="{StaticResource menuButtonIcon}"/>
-
                                 <TextBlock Text="Drawing" Style="{StaticResource menuButtonText}"/>
-                            </StackPanel>
-                        </Menu:BtnControl>
-                        <!--// Calendar //-->
-                        <Menu:BtnControl
-                            Style="{StaticResource menuButton}"
-                            Tag="{StaticResource color4}"
-                            Command="{Binding CalendarCommand}"
-                            Click="RadioButton_Click_CalendarGame" Checked="RadioButton_Calndar">
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="CalendarDay" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Style="{StaticResource menuButtonText}" ><Run Language="pl-PL" Text=""/><Run Language="en-EN"  Text="Calendar"/></TextBlock>
                             </StackPanel>
                         </Menu:BtnControl>
                         <!--// Table of board games //-->

@@ -2,12 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:Boardgame.ViewModel"
                     xmlns:view="clr-namespace:Boardgame.View">
-    
+
     <DataTemplate DataType="{x:Type vm:MainWindowVM}">
         <view:MainWindow />
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:CalendarVM}">
-        <view:Calendar />
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:TableBoardGamesVM}">
         <view:TableBoardGames/>
@@ -22,6 +19,9 @@
     
     <DataTemplate DataType="{x:Type vm:EditBoardGameVM}">
         <view:EditBoardGame/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DrawingsVM}">
+        <view:Drawing/>
     </DataTemplate>
                   
 

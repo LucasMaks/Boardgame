@@ -20,21 +20,22 @@ namespace Boardgame.ViewModel
 
         }
         public ICommand TableBoardGamesCommand { get; set; }
-        public ICommand CalendarCommand { get; set; }
         public ICommand MainCommand { get; set; }
         public ICommand StarPageCommand { get; set; }
+        public ICommand DrawingsComannd {  get; set; }
 
         private void MainWindows(object obj) => CurrentView = new MainWindowVM();
-        private void Calendar(object obj) => CurrentView = new CalendarVM();
         private void TableBoardGames(object obj) => CurrentView = new TableBoardGamesVM();
         private void StarPage(object obj) => CurrentView = new StarPageVM();
+        private void Drawings(object obj) => CurrentView = new DrawingsVM();
+
 
 
         public NavigationVm() {
             MainCommand = new RelayCommand(MainWindows);
-            CalendarCommand = new RelayCommand(Calendar);
             TableBoardGamesCommand = new RelayCommand(TableBoardGames);
             StarPageCommand = new RelayCommand(StarPage);
+            DrawingsComannd = new RelayCommand(Drawings);
             
             //Start page
             CurrentView = new StartPage();
