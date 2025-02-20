@@ -1,0 +1,14 @@
+{
+  "GameSessions": [
+    {
+      "Number": 1,
+      "Title": "Kokaina",
+      "Duration": 5.0
+    },
+    {
+      "Number": 2,
+      "Title": "łatek",
+      "Duration": 5.0
+    }
+  ]
+}

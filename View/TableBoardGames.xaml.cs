@@ -59,7 +59,7 @@ namespace Boardgame.View
             {
                 // Odśwież dane po zamknięciu okna dodawania
                 var viewModel = (TableBoardGamesVM)this.DataContext;
-                viewModel.RefreshCollectionView();
+                viewModel.RefreshCollectionSeaveView();
             }
         }
 

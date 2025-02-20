@@ -33,7 +33,20 @@ namespace Boardgame.ViewModel
 
         private void LoadBoardGames()
         {
-            string filePath = "C:\\Users\\ermsj\\source\\repos\\LucasMaks\\Boardgame\\SaveGame\\BoardGame.json";
+            string saveGameFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveGame");
+
+            // Sprawdź, czy folder istnieje, a jeśli nie, utwórz go
+            if (!Directory.Exists(saveGameFolderPath))
+            {
+                Directory.CreateDirectory(saveGameFolderPath);
+                Console.WriteLine($"Utworzono folder: {saveGameFolderPath}");
+            }
+            else
+            {
+                Console.WriteLine($"Folder już istnieje: {saveGameFolderPath}");
+            }
+
+            string filePath = Path.Combine(saveGameFolderPath, "BoardGame.json");
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
@@ -54,23 +67,44 @@ namespace Boardgame.ViewModel
         }
 
         public void SaveBoardGames()
+
         {
-            string filePath = "C:\\Users\\ermsj\\source\\repos\\LucasMaks\\Boardgame\\SaveGame\\BoardGame.json"; // Zmień na odpowiednią ścieżkę
+            string saveGameFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveGame");
+
+            // Sprawdź, czy folder istnieje, a jeśli nie, utwórz go
+            if (!Directory.Exists(saveGameFolderPath))
+            {
+                Directory.CreateDirectory(saveGameFolderPath);
+                Console.WriteLine($"Utworzono folder: {saveGameFolderPath}");
+            }
+            else
+            {
+                Console.WriteLine($"Folder już istnieje: {saveGameFolderPath}");
+            }
+
+            string filePath = Path.Combine(saveGameFolderPath, "BoardGame.json");
             string json = JsonConvert.SerializeObject(BoardGames, Formatting.Indented);
             File.WriteAllText(filePath, json);
         }
+
         public void RefreshCollectionView()
         {
             SaveBoardGames();
             LoadBoardGames();// Wczytaj ponownie dane z JSON
             OnPropertyChanged(nameof(BoardGames)); // Powiadom widok o zmianach
         }
+        public void RefreshCollectionSeaveView()
+        {
+            
+            LoadBoardGames();// Wczytaj ponownie dane z JSON
+            OnPropertyChanged(nameof(BoardGames)); // Powiadom widok o zmianach
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
     }
 }
