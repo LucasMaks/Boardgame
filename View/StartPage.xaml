@@ -3,52 +3,213 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:vm="clr-namespace:Boardgame.ViewModel"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="630" d:DesignWidth="1040">
 
-    <UserControl.DataContext>
-        <vm:StarPageVM/>
-    </UserControl.DataContext>
+    <!-- DataContext is provided by NavigationVm via DataTemplate -->
+
+    <UserControl.Resources>
+
+        <!-- Clickable card button -->
+        <Style x:Key="CardButton" TargetType="Button">
+            <Setter Property="Background" Value="#2A1B5E"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="CardBg" Background="{TemplateBinding Background}"
+                                CornerRadius="16" Margin="0,3,0,0">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CardBg" Property="Background" Value="#381F7A"/>
+                                <Setter TargetName="CardBg" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#6D2FFF" BlurRadius="20" ShadowDepth="0" Opacity="0.3"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="CardBg" Property="Background" Value="#4A2A8A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Card Title -->
+        <Style x:Key="CardTitle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,10,0,8"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+
+        <!-- Card Description -->
+        <Style x:Key="CardDescription" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#9497CD"/>
+            <Setter Property="FontSize" Value="12.5"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="LineHeight" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+
+        <!-- Yellow accent line -->
+        <Style x:Key="AccentLine" TargetType="Border">
+            <Setter Property="Height" Value="3"/>
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <!-- Icon container circle -->
+        <Style x:Key="IconCircle" TargetType="Border">
+            <Setter Property="Width" Value="52"/>
+            <Setter Property="Height" Value="52"/>
+            <Setter Property="CornerRadius" Value="26"/>
+            <Setter Property="Background" Value="#3A2878"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,16,0,0"/>
+        </Style>
+    </UserControl.Resources>
 
     <Grid>
-        <!--// Base Grid //-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <!--Navigation Menu-->
-        <Border    Grid.Column="0" CornerRadius="10">
+        <!-- Background -->
+        <Border CornerRadius="10">
             <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
-                    <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0A003A" Offset="0"/>
+                    <GradientStop Color="#1C0E49" Offset="0.5"/>
+                    <GradientStop Color="#0F0630" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Grid>
-            <Border MaxWidth="250" MaxHeight="250" HorizontalAlignment="Center" Width="250" Height="250" VerticalAlignment="Center" Margin="0,0,0,-5" Name="DynamicBorder">
-               
-            </Border>
 
-            <TextBlock Text="Board Game"
-           FontSize="36"
-           FontWeight="Bold"   RenderTransformOrigin="0.5,0.5" Width="206" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,270,0,0">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.273"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.495"/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-                <TextBlock.Foreground>
-                    <LinearGradientBrush StartPoint="1,9" EndPoint="0,2">
-                        <GradientStop Color="{StaticResource winBorderColor6}" Offset="0"/>
-                        <GradientStop Color="{StaticResource winBorderColor7}" Offset="1"/>
-                    </LinearGradientBrush>
-                </TextBlock.Foreground>
-            </TextBlock>
+        <!-- Decorative circles -->
+        <Canvas IsHitTestVisible="False">
+            <Ellipse Width="300" Height="300" Canvas.Left="-50" Canvas.Top="100" Opacity="0.06">
+                <Ellipse.Fill><RadialGradientBrush>
+                    <GradientStop Color="#7E3AF2" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </RadialGradientBrush></Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Width="350" Height="350" Canvas.Left="700" Canvas.Top="-80" Opacity="0.05">
+                <Ellipse.Fill><RadialGradientBrush>
+                    <GradientStop Color="#7E3AF2" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </RadialGradientBrush></Ellipse.Fill>
+            </Ellipse>
+        </Canvas>
 
-        </Grid>
+        <!-- Main Content -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Grid Margin="30,30,30,30" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Row 1: 3 cards -->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Card 1: Katalog Gier -->
+                    <Grid Grid.Column="0" Margin="8">
+                        <Border Style="{StaticResource AccentLine}" Background="#FFC047"/>
+                        <Button Style="{StaticResource CardButton}" Command="{Binding GoToCatalogCommand}">
+                            <StackPanel Margin="24,20">
+                                <Border Style="{StaticResource IconCircle}">
+                                    <fa:IconImage Icon="LayerGroup" Width="24" Height="24" Foreground="#4ADAEC"/>
+                                </Border>
+                                <TextBlock Text="Katalog Gier" Style="{StaticResource CardTitle}"/>
+                                <TextBlock Style="{StaticResource CardDescription}"
+                                           Text="Szczegółowa baza z tagami, ocenami, linkami do instrukcji i zaawansowanym filtrowaniem."/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+
+                    <!-- Card 2: Losowanie Tytułu -->
+                    <Grid Grid.Column="1" Margin="8">
+                        <Border Style="{StaticResource AccentLine}" Background="#FB539B"/>
+                        <Button Style="{StaticResource CardButton}" Command="{Binding GoToDrawingCommand}">
+                            <StackPanel Margin="24,20">
+                                <Border Style="{StaticResource IconCircle}">
+                                    <fa:IconImage Icon="Dice" Width="24" Height="24" Foreground="#FB539B"/>
+                                </Border>
+                                <TextBlock Text="Losowanie Tytułu" Style="{StaticResource CardTitle}"/>
+                                <TextBlock Style="{StaticResource CardDescription}"
+                                           Text="Inteligentny algorytm doboru gry wg czasu, liczby graczy i poziomu trudności."/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+
+                    <!-- Card 3: Turnieje -->
+                    <Grid Grid.Column="2" Margin="8">
+                        <Border Style="{StaticResource AccentLine}" Background="#FFC047"/>
+                        <Button Style="{StaticResource CardButton}" Command="{Binding GoToTournamentsCommand}">
+                            <StackPanel Margin="24,20">
+                                <Border Style="{StaticResource IconCircle}">
+                                    <fa:IconImage Icon="Trophy" Width="24" Height="24" Foreground="#FFC047"/>
+                                </Border>
+                                <TextBlock Text="Turnieje" Style="{StaticResource CardTitle}"/>
+                                <TextBlock Style="{StaticResource CardDescription}"
+                                           Text="Generator drabinek, systemy pucharowe i ligowe, wyniki na żywo i historia meczów."/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Grid>
+
+                <!-- Row 2: 2 cards centered -->
+                <Grid Grid.Row="1" Margin="80,10,80,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Card 4: Wydarzenia -->
+                    <Grid Grid.Column="0" Margin="8">
+                        <Border Style="{StaticResource AccentLine}" Background="#78A3FC"/>
+                        <Button Style="{StaticResource CardButton}" Command="{Binding GoToEventsCommand}">
+                            <StackPanel Margin="24,20">
+                                <Border Style="{StaticResource IconCircle}">
+                                    <fa:IconImage Icon="CalendarDays" Width="24" Height="24" Foreground="#78A3FC"/>
+                                </Border>
+                                <TextBlock Text="Wydarzenia" Style="{StaticResource CardTitle}"/>
+                                <TextBlock Style="{StaticResource CardDescription}"
+                                           Text="Tworzenie spotkań, listy obecności, lokalizacje i powiadomienia o statusie."/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+
+                    <!-- Card 5: Społeczność -->
+                    <Grid Grid.Column="1" Margin="8">
+                        <Border Style="{StaticResource AccentLine}" Background="#9B59B6"/>
+                        <Button Style="{StaticResource CardButton}" Command="{Binding GoToCommunityCommand}">
+                            <StackPanel Margin="24,20">
+                                <Border Style="{StaticResource IconCircle}">
+                                    <fa:IconImage Icon="UserGroup" Width="24" Height="24" Foreground="#9B59B6"/>
+                                </Border>
+                                <TextBlock Text="Społeczność" Style="{StaticResource CardTitle}"/>
+                                <TextBlock Style="{StaticResource CardDescription}"
+                                           Text="Profile graczy, statystyki, wymiana gier i system rekomendacji tytułów."/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>

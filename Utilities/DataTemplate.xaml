@@ -9,6 +9,9 @@
     <DataTemplate DataType="{x:Type vm:TableBoardGamesVM}">
         <view:TableBoardGames/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:LoginVM}">
+        <view:LoginView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vm:StarPageVM}">
         <view:StartPage/>
     </DataTemplate>
@@ -23,6 +26,14 @@
     <DataTemplate DataType="{x:Type vm:DrawingsVM}">
         <view:Drawing/>
     </DataTemplate>
-                  
+    <DataTemplate DataType="{x:Type vm:TournamentsVM}">
+        <view:Tournaments/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:EventsVM}">
+        <view:Events/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:CommunityVM}">
+        <view:Community/>
+    </DataTemplate>
 
 </ResourceDictionary>

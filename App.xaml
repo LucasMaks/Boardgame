@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Boardgame"
              StartupUri="/View/MainWindow.xaml"
-             xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+             xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+             xmlns:utils="clr-namespace:Boardgame.Utilities">
              
     <Application.Resources>
         <ResourceDictionary>
@@ -12,6 +13,9 @@
                 <ResourceDictionary Source="/Style/ButtonStyle.xaml"/>
                 <ResourceDictionary Source="/Utilities/DataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <utils:BoolToVisibilityConverter x:Key="BoolToVis"/>
+            <utils:InverseBoolToVisibilityConverter x:Key="InvBoolToVis"/>
+            <utils:InitialsConverter x:Key="InitialsConverter"/>
             <!--Grid Style-->
             <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
                 <Setter Property="Template">

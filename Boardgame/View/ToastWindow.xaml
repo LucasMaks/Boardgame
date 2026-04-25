@@ -1,0 +1,105 @@
+<Window x:Class="Boardgame.View.ToastWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False"
+        Topmost="True"
+        Width="340"
+        SizeToContent="Height"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <!-- Slide in from right -->
+        <Storyboard x:Key="SlideIn">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.25"/>
+            <ThicknessAnimation Storyboard.TargetName="Root"
+                                Storyboard.TargetProperty="Margin"
+                                From="40,0,0,0" To="0,0,0,0"
+                                Duration="0:0:0.3">
+                <ThicknessAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </ThicknessAnimation.EasingFunction>
+            </ThicknessAnimation>
+        </Storyboard>
+        <!-- Fade out before close -->
+        <Storyboard x:Key="FadeOut" Completed="FadeOut_Completed">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="1" To="0" Duration="0:0:0.35"/>
+        </Storyboard>
+    </Window.Resources>
+
+    <Border x:Name="Root" CornerRadius="14" Margin="12,6,12,6">
+        <Border.Effect>
+            <DropShadowEffect Color="#000000" BlurRadius="24" ShadowDepth="4" Opacity="0.5"/>
+        </Border.Effect>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#2A1B5E" Offset="0"/>
+                <GradientStop Color="#1C0E49" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <!-- Left accent bar -->
+            <Border x:Name="AccentBar" Width="4" CornerRadius="14,0,0,14"
+                    HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+
+            <Grid Margin="16,14,14,14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Icon circle -->
+                <Border Grid.Column="0" Width="40" Height="40" CornerRadius="20"
+                        x:Name="IconCircle" Margin="0,0,12,0">
+                    <fa:IconImage x:Name="IconImg" Width="20" Height="20"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+
+                <!-- Text content -->
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock x:Name="TitleText"
+                               Foreground="White" FontWeight="SemiBold"
+                               FontSize="13.5" FontFamily="Segoe UI"
+                               TextTrimming="CharacterEllipsis"/>
+                    <TextBlock x:Name="MessageText"
+                               Foreground="#9497CD" FontSize="12"
+                               FontFamily="Segoe UI" TextWrapping="Wrap"
+                               Margin="0,3,0,0" MaxWidth="210"/>
+                    <TextBlock x:Name="TimeText"
+                               Foreground="#5A5E9A" FontSize="10"
+                               FontFamily="Segoe UI" Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <!-- Close button -->
+                <Button Grid.Column="2" x:Name="CloseBtn"
+                        Click="CloseBtn_Click" VerticalAlignment="Top"
+                        Background="Transparent" BorderThickness="0"
+                        Cursor="Hand" Width="22" Height="22">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="4">
+                                <fa:IconImage Icon="Xmark" Width="10" Height="10" Foreground="#5A5E9A"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#3A2878"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <!-- Bottom progress bar (auto-dismiss timer) -->
+            <Border x:Name="ProgressBar" Height="3" VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left" CornerRadius="0,0,14,14" Opacity="0.5"/>
+        </Grid>
+    </Border>
+</Window>

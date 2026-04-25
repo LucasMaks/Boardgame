@@ -1,0 +1,345 @@
+<UserControl x:Class="Boardgame.View.Events"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:vm="clr-namespace:Boardgame.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="630" d:DesignWidth="1040">
+
+    <UserControl.DataContext>
+        <vm:EventsVM/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <Style x:Key="SectionTitle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#E0E1F1"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+        <Style x:Key="FormLabel" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#9497CD"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="0,8,0,4"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+        <Style x:Key="FormTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="#2A1B5E"/>
+            <Setter Property="Foreground" Value="#E0E1F1"/>
+            <Setter Property="BorderBrush" Value="#3A2878"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="CaretBrush" Value="White"/>
+        </Style>
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="Background" Value="#6D2FFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#7E3AF2"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#3A2878"/>
+                                <Setter Property="Foreground" Value="#666"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource ActionButton}">
+            <Setter Property="Background" Value="#3A2878"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#4A3888"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#2A1B5E"/>
+                                <Setter Property="Foreground" Value="#666"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource ActionButton}">
+            <Setter Property="Background" Value="#B71C1C"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D32F2F"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#3A2878"/>
+                                <Setter Property="Foreground" Value="#666"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CardBorder" TargetType="Border">
+            <Setter Property="Background" Value="#2A1B5E"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Border CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0A003A" Offset="0"/>
+                    <GradientStop Color="#1C0E49" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,15">
+                <TextBlock FontSize="24" FontFamily="Segoe UI">
+                    <Run Text="📅 "/>
+                    <Run Text="Wydarzenia" Foreground="#78A3FC" FontWeight="Bold"/>
+                </TextBlock>
+                <TextBlock Text="{Binding StatusMessage}" Foreground="#4ADAEC" FontSize="12" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left: Create + List -->
+                <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Margin="0,0,15,0">
+                    <StackPanel>
+                        <Border Style="{StaticResource CardBorder}">
+                            <StackPanel>
+                                <TextBlock Text="Nowe wydarzenie" Style="{StaticResource SectionTitle}"/>
+
+                                <TextBlock Text="Nazwa" Style="{StaticResource FormLabel}"/>
+                                <TextBox Text="{Binding NewEventName, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource FormTextBox}"/>
+
+                                <TextBlock Text="Opis" Style="{StaticResource FormLabel}"/>
+                                <TextBox Text="{Binding NewDescription, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource FormTextBox}"
+                                         AcceptsReturn="True" TextWrapping="Wrap" Height="50"/>
+
+                                <TextBlock Text="Lokalizacja" Style="{StaticResource FormLabel}"/>
+                                <TextBox Text="{Binding NewLocation, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource FormTextBox}"/>
+
+                                <TextBlock Text="Data" Style="{StaticResource FormLabel}"/>
+                                <DatePicker SelectedDate="{Binding NewEventDate}" 
+                                            Background="#2A1B5E" Foreground="#E0E1F1" BorderBrush="#3A2878"/>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Margin="0,0,5,0">
+                                        <TextBlock Text="Od" Style="{StaticResource FormLabel}"/>
+                                        <TextBox Text="{Binding NewStartTime, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource FormTextBox}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                                        <TextBlock Text="Do" Style="{StaticResource FormLabel}"/>
+                                        <TextBox Text="{Binding NewEndTime, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource FormTextBox}"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <TextBlock Text="Planowane gry (po przecinku)" Style="{StaticResource FormLabel}"/>
+                                <TextBox Text="{Binding NewPlannedGames, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource FormTextBox}"/>
+
+                                <Button Content="Utwórz wydarzenie" Command="{Binding CreateEventCommand}"
+                                        Style="{StaticResource ActionButton}" Margin="0,10,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Upcoming events -->
+                        <TextBlock Text="Nadchodzące" Style="{StaticResource SectionTitle}"/>
+                        <ListBox ItemsSource="{Binding UpcomingEvents}" SelectedItem="{Binding SelectedEvent}"
+                                 Background="Transparent" BorderThickness="0">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="#1C0E49" CornerRadius="8" Padding="10" Margin="0,0,0,5">
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Name}" Foreground="#78A3FC" FontWeight="SemiBold" FontSize="14"/>
+                                            <TextBlock Foreground="#9497CD" FontSize="11">
+                                                <Run Text="{Binding EventDate, StringFormat=dd.MM.yyyy}"/>
+                                                <Run Text=" • "/>
+                                                <Run Text="{Binding Location}"/>
+                                            </TextBlock>
+                                            <TextBlock Foreground="#7C80C2" FontSize="11">
+                                                <Run Text="Uczestników: "/>
+                                                <Run Text="{Binding Attendees.Count, Mode=OneWay}"/>
+                                                <Run Text=" • Status: "/>
+                                                <Run Text="{Binding Status}"/>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListBoxItem">
+                                                <ContentPresenter/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+
+                        <!-- Past events -->
+                        <TextBlock Text="Zakończone / Anulowane" Style="{StaticResource SectionTitle}" Margin="0,10,0,10"/>
+                        <ListBox ItemsSource="{Binding PastEvents}" SelectedItem="{Binding SelectedEvent}"
+                                 Background="Transparent" BorderThickness="0">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="#1C0E49" CornerRadius="8" Padding="10" Margin="0,0,0,5" Opacity="0.7">
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Name}" Foreground="#7C80C2" FontWeight="SemiBold" FontSize="13"/>
+                                            <TextBlock Foreground="#9497CD" FontSize="11">
+                                                <Run Text="{Binding EventDate, StringFormat=dd.MM.yyyy}"/>
+                                                <Run Text=" • "/>
+                                                <Run Text="{Binding Status}"/>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListBoxItem">
+                                                <ContentPresenter/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <!-- Right: Details -->
+                <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <StackPanel Visibility="{Binding HasSelectedEvent, Converter={StaticResource BoolToVis}}">
+
+                            <!-- Actions -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <Button Content="✅ Zakończ" Command="{Binding CompleteEventCommand}"
+                                        Style="{StaticResource SecondaryButton}" Margin="0,0,10,0"/>
+                                <Button Content="❌ Anuluj wydarzenie" Command="{Binding CancelEventCommand}"
+                                        Style="{StaticResource DangerButton}" Margin="0,0,10,0"/>
+                                <Button Content="🗑 Usuń" Command="{Binding DeleteEventCommand}"
+                                        Style="{StaticResource DangerButton}"/>
+                            </StackPanel>
+
+                            <!-- Add attendee -->
+                            <Border Style="{StaticResource CardBorder}">
+                                <StackPanel>
+                                    <TextBlock Text="Dodaj uczestnika" Style="{StaticResource SectionTitle}"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Text="{Binding NewAttendeeName, UpdateSourceTrigger=PropertyChanged}" 
+                                                 Style="{StaticResource FormTextBox}" Margin="0,0,10,0"/>
+                                        <Button Grid.Column="1" Content="+ Dodaj" Command="{Binding AddAttendeeCommand}"
+                                                Style="{StaticResource ActionButton}"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Attendee list -->
+                            <Border Style="{StaticResource CardBorder}">
+                                <StackPanel>
+                                    <TextBlock Text="Lista obecności" Style="{StaticResource SectionTitle}"/>
+                                    <ItemsControl ItemsSource="{Binding CurrentAttendees}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Background="#1C0E49" CornerRadius="8" Padding="10" Margin="0,0,0,5">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                                            <TextBlock Text="{Binding Name}" Foreground="#E0E1F1" FontSize="13"/>
+                                                            <TextBlock Text="{Binding Status}" Foreground="#9497CD" FontSize="11"/>
+                                                        </StackPanel>
+                                                        <Button Grid.Column="2" Content="✓" 
+                                                                Command="{Binding DataContext.ConfirmAttendeeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                                CommandParameter="{Binding}"
+                                                                Style="{StaticResource ActionButton}" Padding="8,4" Margin="5,0"/>
+                                                        <Button Grid.Column="3" Content="✗"
+                                                                Command="{Binding DataContext.DeclineAttendeeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                                CommandParameter="{Binding}"
+                                                                Style="{StaticResource DangerButton}" Padding="8,4"/>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- Empty state -->
+                        <StackPanel Visibility="{Binding HasSelectedEvent, Converter={StaticResource InvBoolToVis}}">
+                            <Border Style="{StaticResource CardBorder}" Padding="40">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <fa:IconImage Icon="CalendarDays" Width="48" Height="48" Foreground="#3A2878"/>
+                                    <TextBlock Text="Wybierz wydarzenie z listy" Foreground="#7C80C2" FontSize="16" HorizontalAlignment="Center" Margin="0,15,0,5"/>
+                                    <TextBlock Text="lub utwórz nowe, aby zobaczyć szczegóły" Foreground="#9497CD" FontSize="12" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
