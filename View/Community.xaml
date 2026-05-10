@@ -14,26 +14,26 @@
 
     <UserControl.Resources>
         <Style x:Key="SectionTitle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#E0E1F1"/>
+            <Setter Property="Foreground" Value="#1A1240"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Margin" Value="0,0,0,10"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
         <Style x:Key="FormLabel" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#9497CD"/>
+            <Setter Property="Foreground" Value="#5A5490"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Margin" Value="0,8,0,4"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
         <Style x:Key="FormTextBox" TargetType="TextBox">
-            <Setter Property="Background" Value="#2A1B5E"/>
-            <Setter Property="Foreground" Value="#E0E1F1"/>
-            <Setter Property="BorderBrush" Value="#3A2878"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#1A1240"/>
+            <Setter Property="BorderBrush" Value="#D4CCFF"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="8,6"/>
             <Setter Property="FontSize" Value="13"/>
-            <Setter Property="CaretBrush" Value="White"/>
+            <Setter Property="CaretBrush" Value="#1A1240"/>
         </Style>
         <Style x:Key="ActionButton" TargetType="Button">
             <Setter Property="Background" Value="#6D2FFF"/>
@@ -54,8 +54,8 @@
                                 <Setter Property="Background" Value="#7E3AF2"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" Value="#3A2878"/>
-                                <Setter Property="Foreground" Value="#666"/>
+                                <Setter Property="Background" Value="#D4CCFF"/>
+                                <Setter Property="Foreground" Value="#9A97C8"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -75,8 +75,8 @@
                                 <Setter Property="Background" Value="#D32F2F"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" Value="#3A2878"/>
-                                <Setter Property="Foreground" Value="#666"/>
+                                <Setter Property="Background" Value="#D4CCFF"/>
+                                <Setter Property="Foreground" Value="#9A97C8"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -84,7 +84,7 @@
             </Setter>
         </Style>
         <Style x:Key="CardBorder" TargetType="Border">
-            <Setter Property="Background" Value="#2A1B5E"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
             <Setter Property="CornerRadius" Value="12"/>
             <Setter Property="Padding" Value="16"/>
             <Setter Property="Margin" Value="0,0,0,10"/>
@@ -95,8 +95,8 @@
         <Border CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0A003A" Offset="0"/>
-                    <GradientStop Color="#1C0E49" Offset="1"/>
+                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -113,7 +113,7 @@
                     <Run Text="👥 "/>
                     <Run Text="Społeczność" Foreground="#9B59B6" FontWeight="Bold"/>
                 </TextBlock>
-                <TextBlock Text="{Binding StatusMessage}" Foreground="#4ADAEC" FontSize="12" Margin="0,5,0,0"/>
+                <TextBlock Text="{Binding StatusMessage}" Foreground="#6D2FFF" FontSize="12" Margin="0,5,0,0"/>
             </StackPanel>
 
             <Grid Grid.Row="1">
@@ -154,7 +154,7 @@
                                  Background="Transparent" BorderThickness="0">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="#1C0E49" CornerRadius="8" Padding="10" Margin="0,0,0,5">
+                                    <Border Background="#F8F5FF" CornerRadius="8" Padding="10" Margin="0,0,0,5">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
@@ -170,9 +170,9 @@
                                             </Border>
 
                                             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                                <TextBlock Text="{Binding Nickname}" Foreground="#E0E1F1" FontWeight="SemiBold" FontSize="13"/>
-                                                <TextBlock Text="{Binding FullName}" Foreground="#9497CD" FontSize="11"/>
-                                                <TextBlock Foreground="#7C80C2" FontSize="10">
+                                                <TextBlock Text="{Binding Nickname}" Foreground="#1A1240" FontWeight="SemiBold" FontSize="13"/>
+                                                <TextBlock Text="{Binding FullName}" Foreground="#5A5490" FontSize="11"/>
+                                                <TextBlock Foreground="#6B68A8" FontSize="10">
                                                     <Run Text="Gier: "/>
                                                     <Run Text="{Binding OwnedGames.Count, Mode=OneWay}"/>
                                                 </TextBlock>
@@ -221,27 +221,27 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Border Grid.Column="0" Background="#1C0E49" CornerRadius="8" Padding="12" Margin="0,0,5,0">
+                                        <Border Grid.Column="0" Background="#F8F5FF" CornerRadius="8" Padding="12" Margin="0,0,5,0">
                                             <StackPanel HorizontalAlignment="Center">
                                                 <TextBlock Text="{Binding SelectedPlayer.Stats.GamesPlayed}" 
-                                                           Foreground="#FFC047" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                                <TextBlock Text="Rozegranych" Foreground="#9497CD" FontSize="11" HorizontalAlignment="Center"/>
+                                                           Foreground="#D4920A" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                                <TextBlock Text="Rozegranych" Foreground="#5A5490" FontSize="11" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                         </Border>
 
-                                        <Border Grid.Column="1" Background="#1C0E49" CornerRadius="8" Padding="12" Margin="5,0">
+                                        <Border Grid.Column="1" Background="#F8F5FF" CornerRadius="8" Padding="12" Margin="5,0">
                                             <StackPanel HorizontalAlignment="Center">
                                                 <TextBlock Text="{Binding SelectedPlayer.Stats.TournamentsWon}" 
-                                                           Foreground="#4ADAEC" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                                <TextBlock Text="Wygranych" Foreground="#9497CD" FontSize="11" HorizontalAlignment="Center"/>
+                                                           Foreground="#6D2FFF" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                                <TextBlock Text="Wygranych" Foreground="#5A5490" FontSize="11" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                         </Border>
 
-                                        <Border Grid.Column="2" Background="#1C0E49" CornerRadius="8" Padding="12" Margin="5,0,0,0">
+                                        <Border Grid.Column="2" Background="#F8F5FF" CornerRadius="8" Padding="12" Margin="5,0,0,0">
                                             <StackPanel HorizontalAlignment="Center">
                                                 <TextBlock Text="{Binding SelectedPlayer.Stats.EventsAttended}" 
-                                                           Foreground="#FB539B" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                                <TextBlock Text="Wydarzeń" Foreground="#9497CD" FontSize="11" HorizontalAlignment="Center"/>
+                                                           Foreground="#E5266B" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                                <TextBlock Text="Wydarzeń" Foreground="#5A5490" FontSize="11" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                         </Border>
                                     </Grid>
@@ -274,7 +274,7 @@
                                         <ItemsControl ItemsSource="{Binding SelectedPlayer.FavoriteGames}">
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock Foreground="#FFC047" FontSize="12" Margin="0,2">
+                                                    <TextBlock Foreground="#D4920A" FontSize="12" Margin="0,2">
                                                         <Run Text="⭐ "/><Run Text="{Binding Mode=OneWay}"/>
                                                     </TextBlock>
                                                 </DataTemplate>
@@ -306,15 +306,15 @@
                                                 Style="{StaticResource ActionButton}" VerticalAlignment="Bottom" Margin="5,0,0,0"/>
                                     </Grid>
 
-                                    <TextBlock Text="Aktywne oferty" Foreground="#9497CD" FontSize="12" Margin="0,10,0,5"/>
+                                    <TextBlock Text="Aktywne oferty" Foreground="#5A5490" FontSize="12" Margin="0,10,0,5"/>
                                     <ItemsControl ItemsSource="{Binding AllExchangeOffers}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <Border Background="#1C0E49" CornerRadius="6" Padding="8" Margin="0,0,0,4">
-                                                    <TextBlock Foreground="#E0E1F1" FontSize="12">
-                                                        <Run Text="{Binding GameOffered}" Foreground="#FB539B"/>
-                                                        <Run Text=" ↔ " Foreground="#7C80C2"/>
-                                                        <Run Text="{Binding GameWanted}" Foreground="#4ADAEC"/>
+                                                <Border Background="#F8F5FF" CornerRadius="6" Padding="8" Margin="0,0,0,4">
+                                                    <TextBlock Foreground="#1A1240" FontSize="12">
+                                                        <Run Text="{Binding GameOffered}" Foreground="#E5266B"/>
+                                                        <Run Text=" ↔ " Foreground="#6B68A8"/>
+                                                        <Run Text="{Binding GameWanted}" Foreground="#6D2FFF"/>
                                                     </TextBlock>
                                                 </Border>
                                             </DataTemplate>
@@ -330,8 +330,8 @@
                                     <ItemsControl ItemsSource="{Binding Recommendations}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <Border Background="#1C0E49" CornerRadius="6" Padding="8" Margin="0,0,0,4">
-                                                    <TextBlock Text="{Binding}" Foreground="#E0E1F1" FontSize="12" TextWrapping="Wrap"/>
+                                                <Border Background="#F8F5FF" CornerRadius="6" Padding="8" Margin="0,0,0,4">
+                                                    <TextBlock Text="{Binding}" Foreground="#1A1240" FontSize="12" TextWrapping="Wrap"/>
                                                 </Border>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
@@ -344,9 +344,9 @@
                         <StackPanel Visibility="{Binding HasSelectedPlayer, Converter={StaticResource InvBoolToVis}}">
                             <Border Style="{StaticResource CardBorder}" Padding="40">
                                 <StackPanel HorizontalAlignment="Center">
-                                    <fa:IconImage Icon="UserGroup" Width="48" Height="48" Foreground="#3A2878"/>
-                                    <TextBlock Text="Wybierz gracza z listy" Foreground="#7C80C2" FontSize="16" HorizontalAlignment="Center" Margin="0,15,0,5"/>
-                                    <TextBlock Text="lub dodaj nowego, aby zobaczyć profil" Foreground="#9497CD" FontSize="12" HorizontalAlignment="Center"/>
+                                    <fa:IconImage Icon="UserGroup" Width="48" Height="48" Foreground="#D4CCFF"/>
+                                    <TextBlock Text="Wybierz gracza z listy" Foreground="#5A5490" FontSize="16" HorizontalAlignment="Center" Margin="0,15,0,5"/>
+                                    <TextBlock Text="lub dodaj nowego, aby zobaczyć profil" Foreground="#6B68A8" FontSize="12" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>

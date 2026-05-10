@@ -10,7 +10,7 @@
     <UserControl.Resources>
         <Style x:Key="TabButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#7C80C2"/>
+            <Setter Property="Foreground" Value="#6B68A8"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -31,23 +31,23 @@
             </Setter>
         </Style>
         <Style x:Key="TabButtonActive" TargetType="Button" BasedOn="{StaticResource TabButton}">
-            <Setter Property="Foreground" Value="#FFC047"/>
-            <Setter Property="BorderBrush" Value="#FFC047"/>
+            <Setter Property="Foreground" Value="#6D2FFF"/>
+            <Setter Property="BorderBrush" Value="#6D2FFF"/>
         </Style>
         <Style x:Key="FormInput" TargetType="TextBox">
-            <Setter Property="Background" Value="#1C0E49"/>
-            <Setter Property="Foreground" Value="#E0E1F1"/>
-            <Setter Property="BorderBrush" Value="#3A2878"/>
+            <Setter Property="Background" Value="#F8F5FF"/>
+            <Setter Property="Foreground" Value="#1A1240"/>
+            <Setter Property="BorderBrush" Value="#D4CCFF"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="14,12"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="CaretBrush" Value="#FFC047"/>
+            <Setter Property="CaretBrush" Value="#6D2FFF"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
         <Style x:Key="PasswordInput" TargetType="PasswordBox">
-            <Setter Property="Background" Value="#1C0E49"/>
-            <Setter Property="Foreground" Value="#E0E1F1"/>
-            <Setter Property="BorderBrush" Value="#3A2878"/>
+            <Setter Property="Background" Value="#F8F5FF"/>
+            <Setter Property="Foreground" Value="#1A1240"/>
+            <Setter Property="BorderBrush" Value="#D4CCFF"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="14,12"/>
             <Setter Property="FontSize" Value="14"/>
@@ -71,11 +71,11 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#8B4FFF"/>
+                                <Setter Property="Background" Value="#7E3AF2"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" Value="#3A2878"/>
-                                <Setter Property="Foreground" Value="#666"/>
+                                <Setter Property="Background" Value="#D4CCFF"/>
+                                <Setter Property="Foreground" Value="#9A97C8"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -86,7 +86,7 @@
             <Setter Property="Width" Value="32"/>
             <Setter Property="Height" Value="32"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#7C80C2"/>
+            <Setter Property="Foreground" Value="#6B68A8"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -97,17 +97,16 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#3A2878"/>
-                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="#E0D8FF"/>
+                                <Setter Property="Foreground" Value="#1A1240"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        <!-- Feature row item -->
         <Style x:Key="FeatureText" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#9497CD"/>
+            <Setter Property="Foreground" Value="#6B68A8"/>
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -119,30 +118,30 @@
         <Border>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#07002A" Offset="0"/>
-                    <GradientStop Color="#150B3E" Offset="0.5"/>
-                    <GradientStop Color="#0A003A" Offset="1"/>
+                    <GradientStop Color="#F4F0FF" Offset="0"/>
+                    <GradientStop Color="#EDE8FF" Offset="0.5"/>
+                    <GradientStop Color="#E8E0FF" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
 
         <!-- Decorative blobs -->
         <Canvas IsHitTestVisible="False">
-            <Ellipse Width="450" Height="450" Canvas.Left="-100" Canvas.Top="-50" Opacity="0.04">
+            <Ellipse Width="450" Height="450" Canvas.Left="-100" Canvas.Top="-50" Opacity="0.3">
                 <Ellipse.Fill><RadialGradientBrush>
-                    <GradientStop Color="#7E3AF2" Offset="0"/>
+                    <GradientStop Color="#C4B5FD" Offset="0"/>
                     <GradientStop Color="Transparent" Offset="1"/>
                 </RadialGradientBrush></Ellipse.Fill>
             </Ellipse>
-            <Ellipse Width="400" Height="400" Canvas.Left="900" Canvas.Top="300" Opacity="0.05">
+            <Ellipse Width="400" Height="400" Canvas.Left="900" Canvas.Top="300" Opacity="0.2">
                 <Ellipse.Fill><RadialGradientBrush>
-                    <GradientStop Color="#9B59B6" Offset="0"/>
+                    <GradientStop Color="#DDD6FE" Offset="0"/>
                     <GradientStop Color="Transparent" Offset="1"/>
                 </RadialGradientBrush></Ellipse.Fill>
             </Ellipse>
-            <Ellipse Width="300" Height="300" Canvas.Left="400" Canvas.Top="400" Opacity="0.03">
+            <Ellipse Width="300" Height="300" Canvas.Left="400" Canvas.Top="400" Opacity="0.15">
                 <Ellipse.Fill><RadialGradientBrush>
-                    <GradientStop Color="#FFC047" Offset="0"/>
+                    <GradientStop Color="#FDE68A" Offset="0"/>
                     <GradientStop Color="Transparent" Offset="1"/>
                 </RadialGradientBrush></Ellipse.Fill>
             </Ellipse>
@@ -189,11 +188,11 @@
                                 <fa:IconImage Icon="Dice" Width="30" Height="30" Foreground="White"/>
                             </Border>
                             <StackPanel VerticalAlignment="Center">
-                                <TextBlock Foreground="White" FontSize="26" FontWeight="Bold" FontFamily="Segoe UI">
-                                    <Run Text="Board" Foreground="White"/>
-                                    <Run Text="Games" Foreground="#FFC047"/>
+                                <TextBlock Foreground="#1A1240" FontSize="26" FontWeight="Bold" FontFamily="Segoe UI">
+                                    <Run Text="Board" Foreground="#1A1240"/>
+                                    <Run Text="Games" Foreground="#6D2FFF"/>
                                 </TextBlock>
-                                <TextBlock Text="Twoja platforma gier planszowych" Foreground="#7C80C2" FontSize="12" FontFamily="Segoe UI"/>
+                                <TextBlock Text="Twoja platforma gier planszowych" Foreground="#5A5490" FontSize="12" FontFamily="Segoe UI"/>
                             </StackPanel>
                         </StackPanel>
 
@@ -203,47 +202,47 @@
                         <!-- Feature list -->
                         <StackPanel Margin="0,0,0,10">
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
-                                <Border Width="36" Height="36" CornerRadius="10" Background="#1C0E49" Margin="0,0,14,0">
-                                    <fa:IconImage Icon="LayerGroup" Width="18" Height="18" Foreground="#4ADAEC"/>
+                                <Border Width="36" Height="36" CornerRadius="10" Background="#EDE8FF" Margin="0,0,14,0">
+                                    <fa:IconImage Icon="LayerGroup" Width="18" Height="18" Foreground="#6D2FFF"/>
                                 </Border>
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="Katalog Gier" Foreground="#E0E1F1" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
+                                    <TextBlock Text="Katalog Gier" Foreground="#1A1240" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
                                     <TextBlock Text="Baza z tagami, ocenami i filtrowaniem" Style="{StaticResource FeatureText}"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
-                                <Border Width="36" Height="36" CornerRadius="10" Background="#1C0E49" Margin="0,0,14,0">
-                                    <fa:IconImage Icon="Dice" Width="18" Height="18" Foreground="#FB539B"/>
+                                <Border Width="36" Height="36" CornerRadius="10" Background="#FDF2FF" Margin="0,0,14,0">
+                                    <fa:IconImage Icon="Dice" Width="18" Height="18" Foreground="#E5266B"/>
                                 </Border>
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="Losowanie Tytułu" Foreground="#E0E1F1" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
+                                    <TextBlock Text="Losowanie Tytułu" Foreground="#1A1240" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
                                     <TextBlock Text="Inteligentny dobór gry wg liczby graczy" Style="{StaticResource FeatureText}"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
-                                <Border Width="36" Height="36" CornerRadius="10" Background="#1C0E49" Margin="0,0,14,0">
-                                    <fa:IconImage Icon="Trophy" Width="18" Height="18" Foreground="#FFC047"/>
+                                <Border Width="36" Height="36" CornerRadius="10" Background="#FFF8E8" Margin="0,0,14,0">
+                                    <fa:IconImage Icon="Trophy" Width="18" Height="18" Foreground="#D4920A"/>
                                 </Border>
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="Turnieje" Foreground="#E0E1F1" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
+                                    <TextBlock Text="Turnieje" Foreground="#1A1240" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
                                     <TextBlock Text="Drabinki pucharowe i ligi" Style="{StaticResource FeatureText}"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
-                                <Border Width="36" Height="36" CornerRadius="10" Background="#1C0E49" Margin="0,0,14,0">
-                                    <fa:IconImage Icon="CalendarDays" Width="18" Height="18" Foreground="#78A3FC"/>
+                                <Border Width="36" Height="36" CornerRadius="10" Background="#EFF6FF" Margin="0,0,14,0">
+                                    <fa:IconImage Icon="CalendarDays" Width="18" Height="18" Foreground="#3B82F6"/>
                                 </Border>
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="Wydarzenia" Foreground="#E0E1F1" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
+                                    <TextBlock Text="Wydarzenia" Foreground="#1A1240" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
                                     <TextBlock Text="Spotkania i listy obecności" Style="{StaticResource FeatureText}"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <Border Width="36" Height="36" CornerRadius="10" Background="#1C0E49" Margin="0,0,14,0">
+                                <Border Width="36" Height="36" CornerRadius="10" Background="#F5F0FF" Margin="0,0,14,0">
                                     <fa:IconImage Icon="UserGroup" Width="18" Height="18" Foreground="#9B59B6"/>
                                 </Border>
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="Społeczność" Foreground="#E0E1F1" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
+                                    <TextBlock Text="Społeczność" Foreground="#1A1240" FontWeight="SemiBold" FontSize="14" FontFamily="Segoe UI"/>
                                     <TextBlock Text="Profile graczy i wymiana gier" Style="{StaticResource FeatureText}"/>
                                 </StackPanel>
                             </StackPanel>
@@ -254,17 +253,17 @@
                 <!-- RIGHT: Login/Register card -->
                 <Grid Grid.Column="1" Margin="0,0,60,0">
                     <StackPanel VerticalAlignment="Center">
-                        <Border Background="#1A0D4A" CornerRadius="20" Padding="40,36">
+                        <Border Background="#FFFFFF" CornerRadius="20" Padding="40,36">
                             <Border.Effect>
-                                <DropShadowEffect Color="#000000" BlurRadius="40" ShadowDepth="0" Opacity="0.4"/>
+                                <DropShadowEffect Color="#A090D0" BlurRadius="30" ShadowDepth="0" Opacity="0.2"/>
                             </Border.Effect>
                             <StackPanel>
                                 <!-- Title -->
                                 <TextBlock FontSize="24" FontWeight="Bold" FontFamily="Segoe UI" Margin="0,0,0,4">
-                                    <Run Text="Witaj w " Foreground="#E0E1F1"/>
-                                    <Run Text="BoardGames" Foreground="#FFC047"/>
+                                    <Run Text="Witaj w " Foreground="#1A1240"/>
+                                    <Run Text="BoardGames" Foreground="#6D2FFF"/>
                                 </TextBlock>
-                                <TextBlock Foreground="#7C80C2" FontSize="13" FontFamily="Segoe UI" Margin="0,0,0,24">
+                                <TextBlock Foreground="#5A5490" FontSize="13" FontFamily="Segoe UI" Margin="0,0,0,24">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="Text" Value="Zaloguj się, aby kontynuować"/>
@@ -290,8 +289,8 @@
                                             <Style TargetType="Button" BasedOn="{StaticResource TabButton}">
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding IsLoginMode}" Value="True">
-                                                        <Setter Property="Foreground" Value="#FFC047"/>
-                                                        <Setter Property="BorderBrush" Value="#FFC047"/>
+                                                        <Setter Property="Foreground" Value="#6D2FFF"/>
+                                                        <Setter Property="BorderBrush" Value="#6D2FFF"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
@@ -304,8 +303,8 @@
                                             <Style TargetType="Button" BasedOn="{StaticResource TabButton}">
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding IsRegisterMode}" Value="True">
-                                                        <Setter Property="Foreground" Value="#FFC047"/>
-                                                        <Setter Property="BorderBrush" Value="#FFC047"/>
+                                                        <Setter Property="Foreground" Value="#6D2FFF"/>
+                                                        <Setter Property="BorderBrush" Value="#6D2FFF"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
@@ -317,7 +316,7 @@
                                 <!-- Display Name (register only) -->
                                 <StackPanel Visibility="{Binding IsRegisterMode, Converter={StaticResource BoolToVis}}"
                                             Margin="0,0,0,14">
-                                    <TextBlock Text="Wyświetlana nazwa" Foreground="#9497CD" FontSize="12"
+                                    <TextBlock Text="Wyświetlana nazwa" Foreground="#5A5490" FontSize="12"
                                                FontFamily="Segoe UI" Margin="0,0,0,6"/>
                                     <TextBox x:Name="DisplayNameBox"
                                              Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}"
@@ -326,7 +325,7 @@
 
                                 <!-- Email -->
                                 <StackPanel Margin="0,0,0,14">
-                                    <TextBlock Text="Adres e-mail" Foreground="#9497CD" FontSize="12"
+                                    <TextBlock Text="Adres e-mail" Foreground="#5A5490" FontSize="12"
                                                FontFamily="Segoe UI" Margin="0,0,0,6"/>
                                     <TextBox x:Name="EmailBox"
                                              Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
@@ -335,7 +334,7 @@
 
                                 <!-- Password -->
                                 <StackPanel Margin="0,0,0,14">
-                                    <TextBlock Text="Hasło" Foreground="#9497CD" FontSize="12"
+                                    <TextBlock Text="Hasło" Foreground="#5A5490" FontSize="12"
                                                FontFamily="Segoe UI" Margin="0,0,0,6"/>
                                     <PasswordBox x:Name="PasswordBox" Style="{StaticResource PasswordInput}"
                                                  PasswordChanged="PasswordBox_PasswordChanged"/>
@@ -344,23 +343,23 @@
                                 <!-- Confirm Password (register only) -->
                                 <StackPanel Visibility="{Binding IsRegisterMode, Converter={StaticResource BoolToVis}}"
                                             Margin="0,0,0,14">
-                                    <TextBlock Text="Potwierdź hasło" Foreground="#9497CD" FontSize="12"
+                                    <TextBlock Text="Potwierdź hasło" Foreground="#5A5490" FontSize="12"
                                                FontFamily="Segoe UI" Margin="0,0,0,6"/>
                                     <PasswordBox x:Name="ConfirmPasswordBox" Style="{StaticResource PasswordInput}"
                                                  PasswordChanged="ConfirmPasswordBox_PasswordChanged"/>
                                 </StackPanel>
 
                                 <!-- Error message -->
-                                <Border Background="#2D0A0A" CornerRadius="8" Padding="12,8" Margin="0,0,0,14"
+                                <Border Background="#FEF2F2" CornerRadius="8" Padding="12,8" Margin="0,0,0,14"
                                         Visibility="{Binding HasError, Converter={StaticResource BoolToVis}}">
-                                    <TextBlock Text="{Binding ErrorMessage}" Foreground="#FF6B6B"
+                                    <TextBlock Text="{Binding ErrorMessage}" Foreground="#DC2626"
                                                FontSize="13" FontFamily="Segoe UI" TextWrapping="Wrap"/>
                                 </Border>
 
                                 <!-- Success message -->
-                                <Border Background="#0A2D0A" CornerRadius="8" Padding="12,8" Margin="0,0,0,14"
+                                <Border Background="#F0FDF4" CornerRadius="8" Padding="12,8" Margin="0,0,0,14"
                                         Visibility="{Binding HasSuccess, Converter={StaticResource BoolToVis}}">
-                                    <TextBlock Text="{Binding SuccessMessage}" Foreground="#4CAF50"
+                                    <TextBlock Text="{Binding SuccessMessage}" Foreground="#16A34A"
                                                FontSize="13" FontFamily="Segoe UI" TextWrapping="Wrap"/>
                                 </Border>
 

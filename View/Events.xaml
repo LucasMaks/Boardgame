@@ -14,26 +14,26 @@
 
     <UserControl.Resources>
         <Style x:Key="SectionTitle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#E0E1F1"/>
+            <Setter Property="Foreground" Value="#1A1240"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Margin" Value="0,0,0,10"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
         <Style x:Key="FormLabel" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#9497CD"/>
+            <Setter Property="Foreground" Value="#5A5490"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Margin" Value="0,8,0,4"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
         <Style x:Key="FormTextBox" TargetType="TextBox">
-            <Setter Property="Background" Value="#2A1B5E"/>
-            <Setter Property="Foreground" Value="#E0E1F1"/>
-            <Setter Property="BorderBrush" Value="#3A2878"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#1A1240"/>
+            <Setter Property="BorderBrush" Value="#D4CCFF"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="8,6"/>
             <Setter Property="FontSize" Value="13"/>
-            <Setter Property="CaretBrush" Value="White"/>
+            <Setter Property="CaretBrush" Value="#1A1240"/>
         </Style>
         <Style x:Key="ActionButton" TargetType="Button">
             <Setter Property="Background" Value="#6D2FFF"/>
@@ -54,8 +54,8 @@
                                 <Setter Property="Background" Value="#7E3AF2"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" Value="#3A2878"/>
-                                <Setter Property="Foreground" Value="#666"/>
+                                <Setter Property="Background" Value="#D4CCFF"/>
+                                <Setter Property="Foreground" Value="#9A97C8"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -63,7 +63,8 @@
             </Setter>
         </Style>
         <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource ActionButton}">
-            <Setter Property="Background" Value="#3A2878"/>
+            <Setter Property="Background" Value="#E8E2FF"/>
+            <Setter Property="Foreground" Value="#6D2FFF"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -72,11 +73,11 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#4A3888"/>
+                                <Setter Property="Background" Value="#D4CCFF"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" Value="#2A1B5E"/>
-                                <Setter Property="Foreground" Value="#666"/>
+                                <Setter Property="Background" Value="#EDE8FF"/>
+                                <Setter Property="Foreground" Value="#9A97C8"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -96,8 +97,8 @@
                                 <Setter Property="Background" Value="#D32F2F"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" Value="#3A2878"/>
-                                <Setter Property="Foreground" Value="#666"/>
+                                <Setter Property="Background" Value="#D4CCFF"/>
+                                <Setter Property="Foreground" Value="#9A97C8"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -105,7 +106,7 @@
             </Setter>
         </Style>
         <Style x:Key="CardBorder" TargetType="Border">
-            <Setter Property="Background" Value="#2A1B5E"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
             <Setter Property="CornerRadius" Value="12"/>
             <Setter Property="Padding" Value="16"/>
             <Setter Property="Margin" Value="0,0,0,10"/>
@@ -116,8 +117,8 @@
         <Border CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0A003A" Offset="0"/>
-                    <GradientStop Color="#1C0E49" Offset="1"/>
+                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -134,7 +135,7 @@
                     <Run Text="📅 "/>
                     <Run Text="Wydarzenia" Foreground="#78A3FC" FontWeight="Bold"/>
                 </TextBlock>
-                <TextBlock Text="{Binding StatusMessage}" Foreground="#4ADAEC" FontSize="12" Margin="0,5,0,0"/>
+                <TextBlock Text="{Binding StatusMessage}" Foreground="#6D2FFF" FontSize="12" Margin="0,5,0,0"/>
             </StackPanel>
 
             <Grid Grid.Row="1">
@@ -162,7 +163,7 @@
 
                                 <TextBlock Text="Data" Style="{StaticResource FormLabel}"/>
                                 <DatePicker SelectedDate="{Binding NewEventDate}" 
-                                            Background="#2A1B5E" Foreground="#E0E1F1" BorderBrush="#3A2878"/>
+                                            Background="#FFFFFF" Foreground="#1A1240" BorderBrush="#D4CCFF"/>
 
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -193,15 +194,15 @@
                                  Background="Transparent" BorderThickness="0">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="#1C0E49" CornerRadius="8" Padding="10" Margin="0,0,0,5">
+                                    <Border Background="#F8F5FF" CornerRadius="8" Padding="10" Margin="0,0,0,5">
                                         <StackPanel>
-                                            <TextBlock Text="{Binding Name}" Foreground="#78A3FC" FontWeight="SemiBold" FontSize="14"/>
-                                            <TextBlock Foreground="#9497CD" FontSize="11">
+                                            <TextBlock Text="{Binding Name}" Foreground="#6D2FFF" FontWeight="SemiBold" FontSize="14"/>
+                                            <TextBlock Foreground="#5A5490" FontSize="11">
                                                 <Run Text="{Binding EventDate, StringFormat=dd.MM.yyyy}"/>
                                                 <Run Text=" • "/>
                                                 <Run Text="{Binding Location}"/>
                                             </TextBlock>
-                                            <TextBlock Foreground="#7C80C2" FontSize="11">
+                                            <TextBlock Foreground="#6B68A8" FontSize="11">
                                                 <Run Text="Uczestników: "/>
                                                 <Run Text="{Binding Attendees.Count, Mode=OneWay}"/>
                                                 <Run Text=" • Status: "/>
@@ -231,10 +232,10 @@
                                  Background="Transparent" BorderThickness="0">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="#1C0E49" CornerRadius="8" Padding="10" Margin="0,0,0,5" Opacity="0.7">
+                                    <Border Background="#F8F5FF" CornerRadius="8" Padding="10" Margin="0,0,0,5" Opacity="0.7">
                                         <StackPanel>
-                                            <TextBlock Text="{Binding Name}" Foreground="#7C80C2" FontWeight="SemiBold" FontSize="13"/>
-                                            <TextBlock Foreground="#9497CD" FontSize="11">
+                                            <TextBlock Text="{Binding Name}" Foreground="#6B68A8" FontWeight="SemiBold" FontSize="13"/>
+                                            <TextBlock Foreground="#5A5490" FontSize="11">
                                                 <Run Text="{Binding EventDate, StringFormat=dd.MM.yyyy}"/>
                                                 <Run Text=" • "/>
                                                 <Run Text="{Binding Status}"/>
@@ -298,7 +299,7 @@
                                     <ItemsControl ItemsSource="{Binding CurrentAttendees}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <Border Background="#1C0E49" CornerRadius="8" Padding="10" Margin="0,0,0,5">
+                                                <Border Background="#F8F5FF" CornerRadius="8" Padding="10" Margin="0,0,0,5">
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="*"/>
@@ -307,8 +308,8 @@
                                                             <ColumnDefinition Width="Auto"/>
                                                         </Grid.ColumnDefinitions>
                                                         <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                                                            <TextBlock Text="{Binding Name}" Foreground="#E0E1F1" FontSize="13"/>
-                                                            <TextBlock Text="{Binding Status}" Foreground="#9497CD" FontSize="11"/>
+                                                            <TextBlock Text="{Binding Name}" Foreground="#1A1240" FontSize="13"/>
+                                                            <TextBlock Text="{Binding Status}" Foreground="#5A5490" FontSize="11"/>
                                                         </StackPanel>
                                                         <Button Grid.Column="2" Content="✓" 
                                                                 Command="{Binding DataContext.ConfirmAttendeeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
@@ -331,9 +332,9 @@
                         <StackPanel Visibility="{Binding HasSelectedEvent, Converter={StaticResource InvBoolToVis}}">
                             <Border Style="{StaticResource CardBorder}" Padding="40">
                                 <StackPanel HorizontalAlignment="Center">
-                                    <fa:IconImage Icon="CalendarDays" Width="48" Height="48" Foreground="#3A2878"/>
-                                    <TextBlock Text="Wybierz wydarzenie z listy" Foreground="#7C80C2" FontSize="16" HorizontalAlignment="Center" Margin="0,15,0,5"/>
-                                    <TextBlock Text="lub utwórz nowe, aby zobaczyć szczegóły" Foreground="#9497CD" FontSize="12" HorizontalAlignment="Center"/>
+                                    <fa:IconImage Icon="CalendarDays" Width="48" Height="48" Foreground="#D4CCFF"/>
+                                    <TextBlock Text="Wybierz wydarzenie z listy" Foreground="#5A5490" FontSize="16" HorizontalAlignment="Center" Margin="0,15,0,5"/>
+                                    <TextBlock Text="lub utwórz nowe, aby zobaczyć szczegóły" Foreground="#6B68A8" FontSize="12" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>

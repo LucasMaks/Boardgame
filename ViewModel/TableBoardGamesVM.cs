@@ -50,12 +50,21 @@ namespace Boardgame.ViewModel
         public ICommand AddGameCommand { get; }
         public ICommand DeleteGameCommand { get; }
         public ICommand RefreshCommand { get; }
+        public ICommand ToggleAddFormCommand { get; }
+
+        private bool _isAddFormOpen;
+        public bool IsAddFormOpen
+        {
+            get => _isAddFormOpen;
+            set { _isAddFormOpen = value; OnPropertyChanged(); }
+        }
 
         public TableBoardGamesVM()
         {
             AddGameCommand = new RelayCommand(AddGame, _ => !string.IsNullOrWhiteSpace(NewTitle));
             DeleteGameCommand = new RelayCommand(DeleteGame, _ => SelectedGame is not null);
             RefreshCommand = new RelayCommand(_ => LoadGames());
+            ToggleAddFormCommand = new RelayCommand(_ => IsAddFormOpen = !IsAddFormOpen);
             LoadGames();
         }
 
@@ -82,6 +91,7 @@ namespace Boardgame.ViewModel
 
                 BoardGames.Add(game);
                 StatusMessage = $"Dodano \"{game.Title}\".";
+                IsAddFormOpen = false;
 
                 // Clear form
                 NewTitle = string.Empty;

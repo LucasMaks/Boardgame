@@ -134,7 +134,7 @@
                         </StackPanel>
 
                         <!-- Bottom: Notifications + User info + Logout -->
-                        <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#3A2878" Margin="8,0,8,8">
+                        <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#C8C0F0" Margin="8,0,8,8">
                             <StackPanel>
 
                                 <!-- Notification bell row -->
@@ -159,7 +159,7 @@
                                                         CornerRadius="8">
                                                     <Grid Width="24" Height="24">
                                                         <fa:IconImage Icon="Bell" Width="18" Height="18"
-                                                                      Foreground="#9497CD"
+                                                                      Foreground="#6B68A8"
                                                                       HorizontalAlignment="Center"
                                                                       VerticalAlignment="Center"/>
                                                         <!-- Unread badge -->
@@ -177,7 +177,7 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter TargetName="BellBg" Property="Background" Value="#3A2878"/>
+                                                        <Setter TargetName="BellBg" Property="Background" Value="#D4CCFF"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -187,7 +187,7 @@
 
                                 <!-- Notification drop-down panel -->
                                 <Border Visibility="{Binding IsNotifPanelOpen, Converter={StaticResource BoolToVis}}"
-                                        Background="#1C0E49" CornerRadius="10" Margin="4,0,4,6"
+                                        Background="#F0ECFF" CornerRadius="10" Margin="4,0,4,6"
                                         MaxHeight="260">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -197,7 +197,7 @@
 
                                         <!-- Panel header -->
                                         <Grid Grid.Row="0" Margin="10,8,10,4">
-                                            <TextBlock Text="Powiadomienia" Foreground="#E0E1F1"
+                                            <TextBlock Text="Powiadomienia" Foreground="#1A1240"
                                                        FontSize="12" FontWeight="SemiBold"
                                                        FontFamily="Segoe UI"/>
                                             <Button HorizontalAlignment="Right"
@@ -220,21 +220,21 @@
                                                                     <Setter Property="Background" Value="Transparent"/>
                                                                     <Style.Triggers>
                                                                         <DataTrigger Binding="{Binding IsRead}" Value="False">
-                                                                            <Setter Property="Background" Value="#2A1B5E"/>
+                                                                            <Setter Property="Background" Value="#E0D8FF"/>
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
                                                                 </Style>
                                                             </Border.Style>
                                                             <StackPanel>
                                                                 <TextBlock Text="{Binding Title}"
-                                                                           Foreground="#E0E1F1" FontSize="11"
+                                                                           Foreground="#1A1240" FontSize="11"
                                                                            FontWeight="SemiBold" FontFamily="Segoe UI"
                                                                            TextTrimming="CharacterEllipsis"/>
                                                                 <TextBlock Text="{Binding Message}"
-                                                                           Foreground="#7C80C2" FontSize="10"
+                                                                           Foreground="#5A5490" FontSize="10"
                                                                            FontFamily="Segoe UI" TextWrapping="Wrap"/>
-                                                                <TextBlock Text="{Binding CreatedDate, StringFormat=dd.MM.yyyy HH:mm}"
-                                                                           Foreground="#4A4E7A" FontSize="9"
+                                                                <TextBlock Text="{Binding CreatedAt, StringFormat=dd.MM.yyyy HH:mm}"
+                                                                           Foreground="#8B87BA" FontSize="9"
                                                                            FontFamily="Segoe UI" Margin="0,2,0,0"/>
                                                             </StackPanel>
                                                         </Border>
@@ -272,7 +272,7 @@
                                     <Button Grid.Column="2" Command="{Binding LogoutCommand}"
                                             Background="Transparent" BorderThickness="0" Cursor="Hand"
                                             ToolTip="Wyloguj">
-                                        <fa:IconImage Icon="RightFromBracket" Width="16" Height="16" Foreground="#9497CD"/>
+                                        <fa:IconImage Icon="RightFromBracket" Width="16" Height="16" Foreground="#6B68A8"/>
                                         <Button.Template>
                                             <ControlTemplate TargetType="Button">
                                                 <Border Background="{TemplateBinding Background}"
@@ -281,7 +281,7 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#3A2878"/>
+                                                        <Setter Property="Background" Value="#D4CCFF"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>

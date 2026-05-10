@@ -15,15 +15,16 @@
 Grid.Column="1" Margin="0,0,0,0">
         <Border.Background>
             <LinearGradientBrush StartPoint="1,1" EndPoint="0,0.7">
-                <GradientStop Color="{StaticResource winBorderColor4}" Offset="0"/>
-                <GradientStop Color="{StaticResource winBorderColor5}" Offset="1"/>
+                <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <!--Content section / Child views-->
-                <RowDefinition Height="76*"/>
-                <RowDefinition Height="555*"/>
+                <RowDefinition Height="76"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             
             <Grid Grid.Row="0">
@@ -38,27 +39,25 @@ Grid.Column="1" Margin="0,0,0,0">
                 <StackPanel Grid.Column="1"
             Orientation="Horizontal"
             VerticalAlignment="Center">
-                    <RadioButton x:Name="Add_BoardGame"
-                            Style="{StaticResource AddButton}"
-                            Tag="{StaticResource color4}"
-                            Margin="5,0,0,5" 
-                            VerticalAlignment="Center" 
-                            Click="Add_BoardGame_Click" Checked="Add_BoardGame_Checked">
-                        
-                        <StackPanel Orientation="Horizontal" 
-                                    VerticalAlignment="Center" 
-                                    HorizontalAlignment="Center" Width="202">
-                            <fa:IconImage Icon="PlusCircle" 
-                                          Style="{StaticResource menuButtonIcon}" 
-                                          RenderTransformOrigin="-0.901,0.427"/>
-
-                            <TextBlock Style="{StaticResource menuButtonText}" Foreground="{StaticResource color4}" Width="135" HorizontalAlignment="Center">
-                                <Run Language="pl-PL" Text=""/>
-                                <Run Language="en-EN"  Text="Add Board game"/>
-                            </TextBlock>
-
-                        </StackPanel>
-                    </RadioButton>
+                    <Button Content="+ Dodaj grę"
+                            Command="{Binding ToggleAddFormCommand}"
+                            Background="#6D2FFF" Foreground="White"
+                            FontSize="13" FontWeight="SemiBold"
+                            Padding="16,8" BorderThickness="0"
+                            Cursor="Hand" Margin="5,0,0,5">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#7E3AF2"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </StackPanel>
                    <!--Search-->
                 <StackPanel Grid.Column="0"
@@ -66,7 +65,7 @@ Grid.Column="1" Margin="0,0,0,0">
                             VerticalAlignment="Center" Margin="10,0,350,0">
                     <TextBox x:Name="SearchBox"
                              Style="{StaticResource TextBoxSearch}" 
-                             Width="190" Text="Search..." 
+                             Width="190" Text="Szukaj..." 
                              SelectionOpacity="2" 
                              Foreground="Gray"
                              GotFocus="SearchBox_GotFocus"
@@ -76,13 +75,90 @@ Grid.Column="1" Margin="0,0,0,0">
                
             </Grid>
             
-                <!--Data grid -->
+                <!-- Formularz dodawania gry -->
+                <Border Grid.Row="1" Panel.ZIndex="10"
+                        Visibility="{Binding IsAddFormOpen, Converter={StaticResource BoolToVis}}"
+                        Background="#FFFFFF" CornerRadius="12" Padding="16"
+                        Margin="10,4,10,4">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="12" ShadowDepth="2" Opacity="0.15" Direction="270"/>
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock Text="Nowa gra" Foreground="#1A1240" FontSize="16"
+                                   FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,10"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="0,0,8,0">
+                                <TextBlock Text="Tytuł" Foreground="#5A5490" FontSize="11" Margin="0,0,0,4"/>
+                                <TextBox Text="{Binding NewTitle, UpdateSourceTrigger=PropertyChanged}"
+                                         Background="#F8F5FF" Foreground="#1A1240" BorderBrush="#D4CCFF"
+                                         BorderThickness="1" Padding="6,5" FontSize="13" CaretBrush="#1A1240"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="0,0,8,0">
+                                <TextBlock Text="Opis" Foreground="#5A5490" FontSize="11" Margin="0,0,0,4"/>
+                                <TextBox Text="{Binding NewDescription, UpdateSourceTrigger=PropertyChanged}"
+                                         Background="#F8F5FF" Foreground="#1A1240" BorderBrush="#D4CCFF"
+                                         BorderThickness="1" Padding="6,5" FontSize="13" CaretBrush="#1A1240"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Margin="0,0,8,0">
+                                <TextBlock Text="Min" Foreground="#5A5490" FontSize="11" Margin="0,0,0,4"/>
+                                <TextBox Text="{Binding NewMinPlayers, UpdateSourceTrigger=PropertyChanged}"
+                                         Background="#F8F5FF" Foreground="#1A1240" BorderBrush="#D4CCFF"
+                                         BorderThickness="1" Padding="6,5" FontSize="13" CaretBrush="#1A1240"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Margin="0,0,8,0">
+                                <TextBlock Text="Max" Foreground="#5A5490" FontSize="11" Margin="0,0,0,4"/>
+                                <TextBox Text="{Binding NewMaxPlayers, UpdateSourceTrigger=PropertyChanged}"
+                                         Background="#F8F5FF" Foreground="#1A1240" BorderBrush="#D4CCFF"
+                                         BorderThickness="1" Padding="6,5" FontSize="13" CaretBrush="#1A1240"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="4" Margin="0,0,8,0">
+                                <TextBlock Text="Czas (min)" Foreground="#5A5490" FontSize="11" Margin="0,0,0,4"/>
+                                <TextBox Text="{Binding NewDuration, UpdateSourceTrigger=PropertyChanged}"
+                                         Background="#F8F5FF" Foreground="#1A1240" BorderBrush="#D4CCFF"
+                                         BorderThickness="1" Padding="6,5" FontSize="13" CaretBrush="#1A1240"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="5" VerticalAlignment="Bottom">
+                                <Button Content="Dodaj" Command="{Binding AddGameCommand}"
+                                        Background="#6D2FFF" Foreground="White"
+                                        FontSize="13" FontWeight="SemiBold"
+                                        Padding="12,6" BorderThickness="0" Cursor="Hand">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#7E3AF2"/>
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="False">
+                                                    <Setter Property="Background" Value="#D4CCFF"/>
+                                                    <Setter Property="Foreground" Value="#9A97C8"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                    <!--Data grid -->
             <DataGrid
                       ItemsSource="{Binding BoardGames}" 
                       Style="{DynamicResource DataGridStyle1}"  
                       CellStyle="{DynamicResource DataGridCellStyle1}" 
                       ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
-                      RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="1" 
+                      RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="2" 
                       x:Name="BoardGameGridView" SelectionChanged="BoardGameGridView_SelectionChanged">
                 
                 <DataGrid.Columns>
@@ -95,7 +171,7 @@ Grid.Column="1" Margin="0,0,0,0">
                     </DataGridCheckBoxColumn>
                     <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="Auto"/>
 
-                    <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*" MinWidth="200" >
+                    <DataGridTemplateColumn Header="Tytuł" IsReadOnly="True" Width="*" MinWidth="200" >
                         <DataGridTemplateColumn.CellTemplate >
                             <DataTemplate >
                                 <StackPanel Orientation="Horizontal" >
@@ -112,7 +188,7 @@ Grid.Column="1" Margin="0,0,0,0">
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn Header="Description" Width="*" MinWidth="200">
+                    <DataGridTemplateColumn Header="Opis" Width="*" MinWidth="200">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Description}" 
@@ -123,11 +199,11 @@ Grid.Column="1" Margin="0,0,0,0">
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="People" IsReadOnly="True" Binding="{Binding People}" Width="*"/>
-                    <DataGridTextColumn Header="Hours" IsReadOnly="True" Binding="{Binding Hours}" Width="*"/>
-                    <DataGridTextColumn Header="Accessibility" IsReadOnly="True" Binding="{Binding Accessibility}" Width="*" MaxWidth="110"/>
+                    <DataGridTextColumn Header="Gracze" IsReadOnly="True" Binding="{Binding People}" Width="*"/>
+                    <DataGridTextColumn Header="Czas" IsReadOnly="True" Binding="{Binding Hours}" Width="*"/>
+                    <DataGridTextColumn Header="Poziom" IsReadOnly="True" Binding="{Binding Accessibility}" Width="*" MaxWidth="110"/>
 
-                    <DataGridTemplateColumn Header="Opertions" IsReadOnly="False" Width="*" >
+                    <DataGridTemplateColumn Header="Akcje" IsReadOnly="False" Width="*" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

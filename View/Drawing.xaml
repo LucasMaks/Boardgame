@@ -12,173 +12,146 @@
         <vm:DrawingsVM/>
     </UserControl.DataContext>
 
-    <Border CornerRadius="10"
-            Grid.Column="1" Margin="0,0,0,0">
+    <Border CornerRadius="10" Grid.Column="1">
         <Border.Background>
             <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                <GradientStop Color="{StaticResource winBorderColor7}" Offset="0"/>
-                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
-        <Grid>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <!--Content section / Child views-->
-                    <RowDefinition Height="200*"/>
-                    <RowDefinition Height="300*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30*"/>
-                        <ColumnDefinition Width="30*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <!--People-->
-                        <TextBlock Text="How many people Play"
-                            Foreground="{StaticResource titleColor3}"
-                            FontSize="14"
-                            FontFamily="Montserrat"
-                            FontWeight="Normal"
-                            VerticalAlignment="Top"
-                            Margin="50,40,0,0"
-                            HorizontalAlignment="Left"
-                            Height="18"
-                            Width="330"/>
 
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Nagłówek -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,15">
+                <TextBlock FontSize="24" FontFamily="Segoe UI">
+                    <Run Text="🎲 "/>
+                    <Run Text="Losowanie" Foreground="#6D2FFF" FontWeight="Bold"/>
+                </TextBlock>
+                <TextBlock Text="{Binding StatusMessage}" Foreground="#6D2FFF" FontSize="12" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <!-- Panel losowania -->
+            <Border Grid.Row="1" Background="#FFFFFF" CornerRadius="12" Padding="16" Margin="0,0,0,15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Gracze (po przecinku)" Foreground="#5A5490" FontSize="12"
+                                   FontFamily="Segoe UI" Margin="0,0,0,6"/>
                         <TextBox x:Name="People"
                             Style="{StaticResource TextBoxNames}"
-                            Width="250" Text="People..."
-                            SelectionOpacity="1" 
-                            Margin="50,20,0,0"
-                            VerticalAlignment="Top"
+                            Text="Gracze..."
                             GotFocus="People_GotFocus"
                             LostFocus="People_LostFocus"
-                            HorizontalAlignment="Left"
-                            Height="30"/>
-
+                            Height="34"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <RadioButton x:Name="DrawingButto"
-                            Style="{StaticResource menuDrawingButton}"
-                            Tag="{StaticResource color6}"
-                            Margin="0,60,60,0" 
-                            VerticalAlignment="Bottom" 
-                            Click="Drawing_Click" Checked="Drawing_Checked">
 
-                            <StackPanel Orientation="Horizontal" 
-                                VerticalAlignment="Center" 
-                                HorizontalAlignment="Center" 
-                                Width="280" Height="80">
-
-                                <fa:IconImage Icon="DICE"
-                                Style="{StaticResource menuDrawingIcon}" 
+                    <RadioButton Grid.Column="1" x:Name="DrawingButto"
+                        Style="{StaticResource menuDrawingButton}"
+                        Tag="{StaticResource color6}"
+                        Margin="20,0,0,0"
+                        VerticalAlignment="Center"
+                        Click="Drawing_Click" Checked="Drawing_Checked">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                                    HorizontalAlignment="Center" Width="180" Height="50">
+                            <fa:IconImage Icon="DICE"
+                                Style="{StaticResource menuDrawingIcon}"
                                 RenderTransformOrigin="-0.123,0.42"/>
-
-                                <TextBlock Style="{StaticResource DrawingStyleText}" 
-                                Foreground="{StaticResource color6}" 
-                                Width="160"><Run Language="pl-PL" Text=""/><Run Text=" "/><Run Text=" "/><Run Language="en-EN"  Text="DRAW"/></TextBlock>
-
-
-                            </StackPanel>
-                        </RadioButton>
-                    </StackPanel>
+                            <TextBlock Style="{StaticResource DrawingStyleText}"
+                                Foreground="{StaticResource color6}"
+                                Width="100"><Run Text="LOSUJ"/></TextBlock>
+                        </StackPanel>
+                    </RadioButton>
                 </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30*"/>
-                        <ColumnDefinition Width="30*"/>
-                    </Grid.ColumnDefinitions>
+            </Border>
 
-                    <StackPanel Grid.Column="0">
+            <!-- Wyniki -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Historia sesji -->
+                <Border Grid.Column="0" Background="#FFFFFF" CornerRadius="12" Padding="16" Margin="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="Historia sesji" Foreground="#1A1240" FontSize="16"
+                                   FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,10"/>
                         <DataGrid
-            ItemsSource="{Binding GameSessions}" 
-            Style="{DynamicResource DataGridStyle2}"  
-            CellStyle="{DynamicResource DataGridCellStyle2}" 
-            ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}" 
-            RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="1" 
-            x:Name="BoardGameGridView" SelectionChanged="BoardGameGridView_SelectionChanged">
-
+                            ItemsSource="{Binding GameSessions}"
+                            Style="{DynamicResource DataGridStyle2}"
+                            CellStyle="{DynamicResource DataGridCellStyle2}"
+                            ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}"
+                            RowStyle="{DynamicResource DataGridRowStyle2}"
+                            x:Name="BoardGameGridView"
+                            SelectionChanged="BoardGameGridView_SelectionChanged">
                             <DataGrid.Columns>
-
-
-                                <DataGridTemplateColumn Header="Number" IsReadOnly="True" Width="*" MinWidth="50">
-                                    <DataGridTemplateColumn.CellTemplate >
-                                        <DataTemplate >
-                                            <StackPanel Orientation="Horizontal" >
-
-                                                <TextBlock  Text="{Binding Number}" 
-                                                            TextWrapping="Wrap" 
-                                                            VerticalAlignment="Center"
-                                                            HorizontalAlignment="Center"
-                                                            MaxWidth="80"/>
-                                            </StackPanel>
+                                <DataGridTemplateColumn Header="Nr" IsReadOnly="True" Width="Auto" MinWidth="40">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Number}" TextWrapping="Wrap"
+                                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-
-                                <DataGridTemplateColumn Header="Duration" IsReadOnly="True" Width="*" MinWidth="90">
-                                    <DataGridTemplateColumn.CellTemplate >
-                                        <DataTemplate >
-                                            <StackPanel Orientation="Horizontal" >
-
-                                                <TextBlock  Text="{Binding Duration}" 
-                             TextWrapping="Wrap" 
-                             VerticalAlignment="Center"
-                             HorizontalAlignment="Center"
-                             MaxWidth="80"/>
-                                            </StackPanel>
+                                <DataGridTemplateColumn Header="Czas" IsReadOnly="True" Width="*" MinWidth="80">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Duration}" TextWrapping="Wrap"
+                                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-
-                                <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*" MinWidth="150" >
-                                    <DataGridTemplateColumn.CellTemplate >
-                                        <DataTemplate >
-                                            <StackPanel Orientation="Horizontal" >
-
-                                                <TextBlock  Text="{Binding Title}" 
-                                      TextWrapping="Wrap" 
-                                      VerticalAlignment="Center"
-                                      HorizontalAlignment="Center"
-                                      MaxWidth="230"/>
-                                            </StackPanel>
+                                <DataGridTemplateColumn Header="Tytuł" IsReadOnly="True" Width="*" MinWidth="140">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Title}" TextWrapping="Wrap"
+                                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
-                    <StackPanel Grid.Column="1">
+                </Border>
+
+                <!-- Wykres -->
+                <Border Grid.Column="1" Background="#FFFFFF" CornerRadius="12" Padding="16" Margin="10,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="Czas rozgrywek" Foreground="#1A1240" FontSize="16"
+                                   FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,10"/>
                         <Grid>
-                            <lvc:PieChart Grid.Row="1" Margin="0,0,0,0" 
-              Series="{Binding GameDurations}" 
-              LegendLocation="Bottom" 
-              Height="337" 
-              InnerRadius="70"
-              >
+                            <lvc:PieChart Series="{Binding GameDurations}"
+                                          LegendLocation="Bottom"
+                                          Height="300"
+                                          InnerRadius="70">
                                 <lvc:PieChart.ChartLegend>
-                                    <lvc:DefaultLegend  Foreground="White"/>
+                                    <lvc:DefaultLegend Foreground="{StaticResource plainTextColor1}"/>
                                 </lvc:PieChart.ChartLegend>
                                 <lvc:PieChart.DataTooltip>
                                     <lvc:DefaultTooltip BulletSize="10"/>
                                 </lvc:PieChart.DataTooltip>
-
                             </lvc:PieChart>
-                            <TextBlock Text="{Binding TotalDuration, StringFormat=Total: \{0\} hours}" Width="110"
-FontSize="16"  Margin="0,145,0,170" 
-                                       HorizontalAlignment="Center" 
+                            <TextBlock Text="{Binding TotalDuration, StringFormat=Łącznie: \{0\} h}"
+                                       Width="130" FontSize="14"
+                                       Margin="0,120,0,160"
+                                       HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Foreground="WhiteSmoke"
+                                       Foreground="{StaticResource titleColor1}"
                                        Visibility="{Binding IsTotalVisible}"/>
                         </Grid>
-                        
-                        
-
-                        <!-- Suma czasu rozgrywek -->
                     </StackPanel>
-                </Grid>
+                </Border>
             </Grid>
-
         </Grid>
     </Border>
 </UserControl>

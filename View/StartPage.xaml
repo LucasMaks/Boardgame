@@ -13,7 +13,7 @@
 
         <!-- Clickable card button -->
         <Style x:Key="CardButton" TargetType="Button">
-            <Setter Property="Background" Value="#2A1B5E"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Padding" Value="0"/>
@@ -26,15 +26,15 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="CardBg" Property="Background" Value="#381F7A"/>
+                                <Setter TargetName="CardBg" Property="Background" Value="#F0ECFF"/>
                                 <Setter TargetName="CardBg" Property="Effect">
                                     <Setter.Value>
-                                        <DropShadowEffect Color="#6D2FFF" BlurRadius="20" ShadowDepth="0" Opacity="0.3"/>
+                                        <DropShadowEffect Color="#6D2FFF" BlurRadius="16" ShadowDepth="0" Opacity="0.15"/>
                                     </Setter.Value>
                                 </Setter>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="CardBg" Property="Background" Value="#4A2A8A"/>
+                                <Setter TargetName="CardBg" Property="Background" Value="#E8E0FF"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -44,7 +44,7 @@
 
         <!-- Card Title -->
         <Style x:Key="CardTitle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="#1A1240"/>
             <Setter Property="FontSize" Value="17"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -54,7 +54,7 @@
 
         <!-- Card Description -->
         <Style x:Key="CardDescription" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#9497CD"/>
+            <Setter Property="Foreground" Value="#5A5490"/>
             <Setter Property="FontSize" Value="12.5"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="TextAlignment" Value="Center"/>
@@ -75,7 +75,7 @@
             <Setter Property="Width" Value="52"/>
             <Setter Property="Height" Value="52"/>
             <Setter Property="CornerRadius" Value="26"/>
-            <Setter Property="Background" Value="#3A2878"/>
+            <Setter Property="Background" Value="#EDE8FF"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0,16,0,0"/>
         </Style>
@@ -86,9 +86,9 @@
         <Border CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0A003A" Offset="0"/>
-                    <GradientStop Color="#1C0E49" Offset="0.5"/>
-                    <GradientStop Color="#0F0630" Offset="1"/>
+                    <GradientStop Color="#F4F0FF" Offset="0"/>
+                    <GradientStop Color="#EDE8FF" Offset="0.5"/>
+                    <GradientStop Color="#E8E2FF" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>

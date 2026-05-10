@@ -35,13 +35,6 @@ namespace Boardgame.View
 
         private void RadioButton_Click(object sender, RoutedEventArgs e) { }
 
-        private void Add_BoardGame_Click(object sender, RoutedEventArgs e)
-        {
-            var addWindow = new AddBoardGame();
-            if (addWindow.ShowDialog() == true)
-                VM.RefreshCommand.Execute(null);
-        }
-
         private void Add_BoardGame_Checked(object sender, RoutedEventArgs e) { }
 
         private void EditBoardGame_Click(object sender, RoutedEventArgs e)
